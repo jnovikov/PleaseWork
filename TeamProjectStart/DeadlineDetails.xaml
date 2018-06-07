@@ -1,0 +1,30 @@
+﻿<Page x:Class="TeamProjectStart.DeadlineDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeamProjectStart"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="450"
+      Title="DeadlineDetails">
+
+    <Grid Background="DarkBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Button Name="buttonAddDeadlineDetail" Width="80" Height="18" HorizontalAlignment="Left" Margin="10,5,0,5">+</Button>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,10,0,10" Foreground="White">Здесь название дедлайна будет дедлайна</TextBlock>
+        <StackPanel Grid.Row="2" Grid.RowSpan="2">
+            <CheckBox Name="checkBox1" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox2" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox3" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox4" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox5" Height="20" Margin="10"/>
+        </StackPanel>
+        <Button Name="buttonGoBack" Grid.Row="3" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0" Click="buttonGoBack_Click">Назад</Button>
+
+    </Grid>
+</Page>

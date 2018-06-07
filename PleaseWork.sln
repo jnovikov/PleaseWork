@@ -1,13 +1,27 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{2FC05458-98BA-4B56-BE60-B732351CC7F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{C2795997-7E9D-41F9-9EF5-D4C68E84E842}"
 EndProject
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamProjectStart", "TeamProjectStart\TeamProjectStart.csproj", "{84665791-3526-4E41-8233-BC6C765EC387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84665791-3526-4E41-8233-BC6C765EC387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84665791-3526-4E41-8233-BC6C765EC387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84665791-3526-4E41-8233-BC6C765EC387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84665791-3526-4E41-8233-BC6C765EC387}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2FC05458-98BA-4B56-BE60-B732351CC7F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
