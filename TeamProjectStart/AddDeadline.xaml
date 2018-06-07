@@ -1,0 +1,33 @@
+﻿<Page x:Class="TeamProjectStart.AddDeadline"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeamProjectStart"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="450"
+      Title="AddDeadline">
+
+    <Grid Background="DarkBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="92*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <Label VerticalAlignment="Center" Margin="30 0 0 0" Foreground="White" FontSize="14">Добавить дедлайн</Label>
+        <StackPanel Grid.Row="1" Orientation="Vertical" Grid.RowSpan="2" >
+            <TextBlock Foreground="White" Margin="10 15 10 10">Название</TextBlock>
+            <TextBox Width="200" Height="18"/>
+            <TextBlock Foreground="White" Margin="10">Дата дедлайна</TextBlock>
+            <TextBox Width="200" Height="18"/>
+            <TextBlock Foreground="White" Margin="10">Важность дедлайна</TextBlock>
+            <ComboBox Width="200" Height="18"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="buttonAddDeadline" Width="80" Height="18" Margin="0 0 40 10" >Добавить</Button>
+            <Button Name="buttonGoBack" Width="80" Height="18" Margin="0 0 0 10" Click="buttonGoBack_Click">Назад</Button>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

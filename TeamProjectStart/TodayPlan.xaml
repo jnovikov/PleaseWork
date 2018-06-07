@@ -1,0 +1,30 @@
+﻿<Page x:Class="TeamProjectStart.TodayPlan"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeamProjectStart"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="450"
+      Title="TodayPlan">
+    <Grid Background="DarkBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="237*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <Label Foreground="White" Grid.Row="0" FontSize="14"  HorizontalAlignment="Center">Какой план на сегоня?
+        </Label>
+        <StackPanel Grid.Row="1">
+            <CheckBox Name="checkBox1" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox2" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox3" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox4" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox5" Height="20" Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="buttonViewDeadline" Margin="5 5 130 5" Width="80" Height="20" Click="buttonViewDeadline_Click">Дедлайны</Button>
+            <Button Name="buttonGoBack" Margin="130 5 5 5 " Width="80" Height="20" Click="buttonGoBack_Click">Выйти</Button>
+        </StackPanel>
+    </Grid>
+</Page>
