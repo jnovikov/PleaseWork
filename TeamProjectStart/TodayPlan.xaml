@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeamProjectStart"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="450"
+      d:DesignHeight="360" d:DesignWidth="450"
       Title="TodayPlan">
     <Grid Background="DarkBlue">
         <Grid.RowDefinitions>
@@ -18,7 +18,7 @@
         <StackPanel Grid.Row="1">
             <CheckBox Name="checkBox1" Height="20" Margin="10"/>
             <CheckBox Name="checkBox2" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox3" Height="20" Margin="10"/>
+            <CheckBox Name="checkBox3" Height="20" Margin="10"/> 
             <CheckBox Name="checkBox4" Height="20" Margin="10"/>
             <CheckBox Name="checkBox5" Height="20" Margin="10"/>
         </StackPanel>
