@@ -10,6 +10,6 @@ namespace Core
     {
         public int Id { get; set; }
         public int MyProperty { get; set; }
-        public int Test {get; set;}
+        public int Test {get; set;} /////
     }
 }
