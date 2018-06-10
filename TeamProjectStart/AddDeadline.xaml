@@ -5,21 +5,21 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeamProjectStart"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="450"
+      d:DesignHeight="360" d:DesignWidth="450"
       Title="AddDeadline">
 
     <Grid Background="DarkBlue">
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*"/>
-            <RowDefinition Height="92*"/>
-            <RowDefinition Height="33*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Label VerticalAlignment="Bottom" Margin="30 0 0 0" Foreground="White" FontSize="15">Добавить дедлайн</Label>
         <StackPanel Grid.Row="1" Orientation="Vertical" Grid.RowSpan="2" >
-            <TextBlock Foreground="White" Margin="15 40 10 15">Название</TextBlock>
+            <TextBlock Foreground="White" Margin="15 20 10 0">Название</TextBlock>
             <TextBox Width="200" Height="18"/>
-            <TextBlock Foreground="White" Margin="15">Дата дедлайна</TextBlock>
-            <TextBox Width="200" Height="18"/>
+            <TextBlock Foreground="White" Margin="15 10 0 0">Дата дедлайна</TextBlock>
+            <Calendar FirstDayOfWeek="Monday"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Name="buttonAddDeadline" Width="80" Height="18" Margin="0 0 40 10" >Добавить</Button>

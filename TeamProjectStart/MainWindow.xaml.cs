@@ -25,5 +25,10 @@ namespace TeamProjectStart
             InitializeComponent();
             PageContent.Content = new TodayPlan();
         }
+
+        private void PageContent_Navigated(object sender, NavigationEventArgs e)
+        {
+
+        }
     }
 }

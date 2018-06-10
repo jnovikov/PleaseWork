@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeamProjectStart"
         mc:Ignorable="d"
-        Title="DOITHSE" Height="350" Width="525">
+        Title="DOITHSE" Height="360" Width="450">
     <Grid>
-        <Frame Name="PageContent" NavigationUIVisibility="Hidden"/>
+        <Frame Name="PageContent" NavigationUIVisibility="Hidden" Navigated="PageContent_Navigated"/>
     </Grid>
 </Window>
