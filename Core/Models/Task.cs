@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core
+namespace Core.Models
 {
-    public class Deadline
+    public class Task
     {
         public int Id { get; set; }
-        public int MyProperty { get; set; }
-        public int Test {get; set;} /////
+        public string Name { get; set; }
+        public DateTime DtFinish { get; set; }
     }
 }

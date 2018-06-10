@@ -12,6 +12,6 @@ namespace Core
         public string Email { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
-        public List<Deadline> Deadlines { get; set; }
+        public virtual List<Deadline> Deadlines { get; set; }
     }
 }
