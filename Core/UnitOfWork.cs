@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Interfaces;
+using Core.Repositories;
 
 namespace Core
 {
@@ -10,13 +12,16 @@ namespace Core
     {
         Context _context = new Context();
 
-
+        public IUserRepository Users { get; }
+        public IDeadlineRepository Deadlines { get; }
+        public ITaskRepository Tasks { get; }
 
         public UnitOfWork()
         {
-
+            Users = new UserRepository(_context);
+            Deadlines = new DeadlineRepository(_context);
+            Tasks = new TaskRepository(_context);
         }
-
 
         public void Complete()
         {
