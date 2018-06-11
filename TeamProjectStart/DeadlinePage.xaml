@@ -16,8 +16,8 @@
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="1" Foreground="White" HorizontalAlignment="Center" FontSize="15" Margin="185,0">Дедлайны</Label>
-        <StackPanel Grid.Row="2" Grid.RowSpan="2">
-            <TextBlock Foreground="White" Margin="5" />
+        <StackPanel Grid.Row="1" Grid.RowSpan="3" Margin="0,33,0,10">
+            <TextBox Background="DarkBlue" Margin="5" MouseDoubleClick="TextBox_MouseDoubleClick"/>
             <ProgressBar Height="15" Width="150" Margin="5"/>
         </StackPanel>
         <Button Name="buttonAddDeadline" Margin="10,6,0,6" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadline_Click">+</Button>

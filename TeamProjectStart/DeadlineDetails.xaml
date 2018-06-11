@@ -10,21 +10,19 @@
 
     <Grid Background="DarkBlue">
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="51*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="208*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="38*"/>
         </Grid.RowDefinitions>
-        <Button Name="buttonAddDeadlineDetail" Width="80" Height="18" HorizontalAlignment="Left" Margin="10,5,0,5">+</Button>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,10,0,10" Foreground="White">Здесь название дедлайна будет дедлайна</TextBlock>
-        <StackPanel Grid.Row="2" Grid.RowSpan="2">
+        <Button Name="buttonAddDeadlineDetail" Width="80" Height="18" HorizontalAlignment="Left" Margin="10,8,0,8" RenderTransformOrigin="0.521,-0.499" Click="buttonAddDeadlineDetail_Click">+</Button>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,14,0,13" Foreground="White">Здесь название дедлайна будет дедлайна</TextBlock>
+        <StackPanel Grid.Row="2" Grid.RowSpan="3">
             <CheckBox Name="checkBox1" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox2" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox3" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox4" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox5" Height="20" Margin="10"/>
         </StackPanel>
-        <Button Name="buttonGoBack" Grid.Row="3" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0" Click="buttonGoBack_Click">Назад</Button>
+        <ProgressBar Name ="ProgressBarTasks" Grid.Row="3" Height="22" Width="220" HorizontalAlignment="Left" Margin="10 0" />
+        <Button Name="buttonGoBack" Grid.Row="4" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,10,10" Click="buttonGoBack_Click">Назад</Button>
 
     </Grid>
 </Page>

@@ -20,6 +20,8 @@ namespace TeamProjectStart
     /// </summary>
     public partial class AddDetail : Page
     {
+        public event Action<Task> TaskAdded;
+
         public AddDetail()
         {
             InitializeComponent();
@@ -28,6 +30,19 @@ namespace TeamProjectStart
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TextBoxDescription.Text))
+            {
+                TaskAdded?.Invoke(new Task
+                {
+                    Description = TextBoxDescription.Text
+                });
+                NavigationService.GoBack();
+            }
+
         }
     }
 }

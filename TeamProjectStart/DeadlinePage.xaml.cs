@@ -34,5 +34,10 @@ namespace TeamProjectStart
         {
             NavigationService.Navigate(new AddDeadline());
         }
+
+        private void TextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new DeadlineDetails());
+        }
     }
 }
