@@ -11,6 +11,7 @@ namespace BackendApi.Controllers
     {
         protected MyContext db;
 
+        protected User CurrentUser => db.Users.FirstOrDefault(x => x.Email == User.Identity.Name);
         public BaseController(MyContext db)
         {
             this.db = db;
