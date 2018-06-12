@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace TeamProjectStart
 {
-    class Task
+    public class Task
     {
         public string Description { get; set; }
         public bool IsDone { get; set; }
+        //ytyty
     }
 }
