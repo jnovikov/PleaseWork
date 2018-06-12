@@ -27,7 +27,7 @@ namespace BackendApi.Controllers
             var username = Request.Form["email"];
             var password = Request.Form["password"];
 
-            if ((username == '') || (password == ''))
+            if ((username == "") || (password == ""))
             {
                 return BadRequest("Введите логин и пароль");
             }
