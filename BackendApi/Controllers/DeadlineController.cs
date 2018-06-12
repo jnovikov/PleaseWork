@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 namespace BackendApi.Controllers
 {
@@ -43,7 +44,7 @@ namespace BackendApi.Controllers
         {
             var user = CurrentUser;
             var deadlines = db.Deadlines.Where(x => x.UserId == user.Id).ToArray();
-            return Ok(new ObjectResult(deadlines));
+            return Ok(new {deadlines = deadlines});
         }
 
 //        [HttpPost]
