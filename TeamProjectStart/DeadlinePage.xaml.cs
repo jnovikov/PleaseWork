@@ -32,45 +32,45 @@ namespace TeamProjectStart
 
         private void buttonAddDeadline_Click(object sender, RoutedEventArgs e)
         {
-            var addDeadlinePage = new AddDeadline();
-            addDeadlinePage.DeadlineAdded += AddDeadlinePage_DeadlineAdded;
-            NavigationService.Navigate(addDeadlinePage);
+            //var addDeadlinePage = new AddDeadline();
+            //addDeadlinePage.DeadlineAdded += AddDeadlinePage_DeadlineAdded;
+            //NavigationService.Navigate(addDeadlinePage);
         }
 
         private void AddDeadlinePage_DeadlineAdded(object obj) //принять дедлайн
         {
-            var deadlineBlock = new StackPanel();
+            //var deadlineBlock = new StackPanel();
 
-            var deadlineLabel = new Label();
-            deadlineLabel.Content = "DEADLINE";
-            deadlineLabel.Foreground = Brushes.White;
-            deadlineLabel.Margin = new Thickness(5);
-            deadlineLabel.MouseDoubleClick += Label_MouseDoubleClick;
+            //var deadlineLabel = new Label();
+            //deadlineLabel.Content = "DEADLINE";
+            //deadlineLabel.Foreground = Brushes.White;
+            //deadlineLabel.Margin = new Thickness(5);
+            //deadlineLabel.MouseDoubleClick += Label_MouseDoubleClick;
 
-            var deadlineProgress = new ProgressBar();
-            deadlineProgress.Height = 15;
-            deadlineProgress.Width = 150;
-            deadlineProgress.Margin = new Thickness(5);
+            //var deadlineProgress = new ProgressBar();
+            //deadlineProgress.Height = 15;
+            //deadlineProgress.Width = 150;
+            //deadlineProgress.Margin = new Thickness(5);
 
-            deadlineBlock.Children.Add(deadlineLabel);
-            deadlineBlock.Children.Add(deadlineProgress);
+            //deadlineBlock.Children.Add(deadlineLabel);
+            //deadlineBlock.Children.Add(deadlineProgress);
 
-            DeadlinesBlock.Children.Add(deadlineBlock);
+            //DeadlinesBlock.Children.Add(deadlineBlock);
         }
 
         private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var selectedLabel = sender as Label;
-            if (selectedLabel != null)
-            {
-                var selectedStackPanel = selectedLabel.Parent as StackPanel;
-                if (selectedStackPanel != null)
-                {
-                    var deadlineIndex = DeadlinesBlock.Children.IndexOf(selectedStackPanel);
-                    MessageBox.Show(deadlineIndex.ToString());
-                    // NavigationService.Navigate(new DeadlineDetails());
-                }
-            }
+            //var selectedLabel = sender as Label;
+            //if (selectedLabel != null)
+            //{
+            //    var selectedStackPanel = selectedLabel.Parent as StackPanel;
+            //    if (selectedStackPanel != null)
+            //    {
+            //        var deadlineIndex = DeadlinesBlock.Children.IndexOf(selectedStackPanel);
+            //        MessageBox.Show(deadlineIndex.ToString());
+        //    //        // NavigationService.Navigate(new DeadlineDetails());
+        //        }
+        //    }
         }
     }
 }
