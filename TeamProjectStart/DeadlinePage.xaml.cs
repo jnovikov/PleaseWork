@@ -68,9 +68,9 @@ namespace TeamProjectStart
             //    {
             //        var deadlineIndex = DeadlinesBlock.Children.IndexOf(selectedStackPanel);
             //        MessageBox.Show(deadlineIndex.ToString());
-            //        // NavigationService.Navigate(new DeadlineDetails());
-            //    }
-           // }
+        //    //        // NavigationService.Navigate(new DeadlineDetails());
+        //        }
+        //    }
         }
     }
 }

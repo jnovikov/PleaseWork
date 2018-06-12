@@ -20,6 +20,7 @@ namespace TeamProjectStart
     /// </summary>
     public partial class DeadlineDetails : Page
     {
+        
         //добавить readdata и savedata
         //private List<Task> _tasks = new List<Task>();
         
@@ -27,8 +28,6 @@ namespace TeamProjectStart
         public DeadlineDetails()
         {
             InitializeComponent();
-
-
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
@@ -56,8 +55,8 @@ namespace TeamProjectStart
         //    var newCheckBox = new CheckBox();
         //    newCheckBox.Margin = new Thickness(0, 5, 0, 5);
 
-        //    newCheckBox.Content = task.Description;
-        //    newCheckBox.IsChecked = task.IsDone;
+        //    //newCheckBox.Content = task.Description;
+        //    //newCheckBox.IsChecked = task.IsDone;
 
         //    newCheckBox.Checked += TaskFinishedChanged;
         //    newCheckBox.Unchecked += TaskFinishedChanged;
@@ -72,16 +71,16 @@ namespace TeamProjectStart
         //    if (neededCheckBox != null)
         //    {
         //        var neededIndex = PageContent.Children.IndexOf(neededCheckBox);
-        //        _tasks[neededIndex].IsDone = !_tasks[neededIndex].IsDone;
+        //       // _tasks[neededIndex].IsDone = !_tasks[neededIndex].IsDone;
         //        UpdateProgressBar();
         //    }
         }
 
         private void UpdateProgressBar()
         {
-        //    var doneTasks = _tasks.FindAll(t => t.IsDone);
-        //    var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
-        //    ProgressBarTasks.Value = percentOfDoneTasks * 100;
+        //    //var doneTasks = _tasks.FindAll(t => t.IsDone);
+        //   // var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
+        //   // ProgressBarTasks.Value = percentOfDoneTasks * 100;
         }
     }
 }
