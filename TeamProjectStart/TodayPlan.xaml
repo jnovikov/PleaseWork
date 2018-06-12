@@ -17,10 +17,7 @@
         </Label>
         <StackPanel Grid.Row="1">
             <CheckBox Name="checkBox1" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox2" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox3" Height="20" Margin="10"/> 
-            <CheckBox Name="checkBox4" Height="20" Margin="10"/>
-            <CheckBox Name="checkBox5" Height="20" Margin="10"/>
+
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Name="buttonViewDeadline" Margin="5 5 130 5" Width="80" Height="20" Click="buttonViewDeadline_Click">Дедлайны</Button>

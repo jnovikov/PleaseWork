@@ -20,14 +20,68 @@ namespace TeamProjectStart
     /// </summary>
     public partial class DeadlineDetails : Page
     {
+        //добавить readdata и savedata
+        private List<Task> _tasks = new List<Task>();
+        
+        //принять дедлайн и для него вывести данные 
         public DeadlineDetails()
         {
             InitializeComponent();
+
+
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
+        {
+            var addDetailWindow = new AddDetail();
+            addDetailWindow.TaskAdded += AddTask;
+            NavigationService.Navigate(addDetailWindow);
+            
+        }
+
+        private void AddTask(Task task)
+        {
+            AddCheckBox(task);
+            UpdateProgressBar();
+
+        }
+
+        private void AddCheckBox(Task task)
+        {
+            var newCheckBox = new CheckBox();
+            newCheckBox.Margin = new Thickness(0, 5, 0, 5);
+
+            newCheckBox.Content = task.Description;
+            newCheckBox.IsChecked = task.IsDone;
+
+            newCheckBox.Checked += TaskFinishedChanged;
+            newCheckBox.Unchecked += TaskFinishedChanged;
+
+            PageContent.Children.Add(newCheckBox);
+            _tasks.Add(task);
+        }
+        
+        private void TaskFinishedChanged(object sender, RoutedEventArgs e)
+        {
+            var neededCheckBox = sender as CheckBox;
+            if (neededCheckBox != null)
+            {
+                var neededIndex = PageContent.Children.IndexOf(neededCheckBox);
+                _tasks[neededIndex].IsDone = !_tasks[neededIndex].IsDone;
+                UpdateProgressBar();
+            }
+        }
+
+        private void UpdateProgressBar()
+        {
+            var doneTasks = _tasks.FindAll(t => t.IsDone);
+            var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
+            ProgressBarTasks.Value = percentOfDoneTasks * 100;
         }
     }
 }
