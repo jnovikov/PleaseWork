@@ -32,17 +32,17 @@ namespace TeamProjectStart
             NavigationService.GoBack();
         }
 
-        private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(TextBoxDescription.Text))
-            {
-                TaskAdded?.Invoke(new Task
-                {
-                    Description = TextBoxDescription.Text
-                });
-                NavigationService.GoBack();
-            }
+        //private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(TextBoxDescription.Text))
+        //    {
+        //        //TaskAdded?.Invoke(new Task
+        //        //{
+        //        //    Description = TextBoxDescription.Text
+        //        //});
+        //        //NavigationService.GoBack();
+        //    }
 
-        }
+        //}
     }
 }

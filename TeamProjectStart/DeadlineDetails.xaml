@@ -5,24 +5,31 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeamProjectStart"
       mc:Ignorable="d" 
-      d:DesignHeight="360" d:DesignWidth="450"
+      d:DesignHeight="300" d:DesignWidth="450"
       Title="DeadlineDetails">
-
-    <Grid Background="DarkBlue">
+    <Page.Background>
+        <ImageBrush ImageSource="Images\jess-watters-515757-unsplash.jpg"></ImageBrush>
+    </Page.Background>
+    <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="208*"/>
-            <RowDefinition Height="37*"/>
-            <RowDefinition Height="38*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Button Name="buttonAddDeadlineDetail" Width="80" Height="18" HorizontalAlignment="Left" Margin="10,8,0,8" RenderTransformOrigin="0.521,-0.499" Click="buttonAddDeadlineDetail_Click">+</Button>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25,14,0,13" Foreground="White">Здесь название дедлайна будет дедлайна</TextBlock>
-        <StackPanel Grid.Row="2" Grid.RowSpan="3">
-            <CheckBox Name="checkBox1" Height="20" Margin="10"/>
+        <Button  Name="buttonAddDeadline" Margin="0,0,0,28.4" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadline_Click" Grid.RowSpan="2" BorderThickness="0" Background="Gold">
+            <Image Source="Images\add.png" Height="38" Width="28" />
+        </Button>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="76,0,-0.4,0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374">Здесь будет название дедлайна</TextBlock>
+        <StackPanel Grid.Row="2" Grid.RowSpan="2">
+            <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10"/>
+            <CheckBox Background="OrangeRed" Name="checkBox2" Height="20" Margin="10"/>
+            <CheckBox Background="DodgerBlue" Name="checkBox3" Height="20" Margin="10"/>
+            <CheckBox  Background="Yellow" Name="checkBox4" Height="20" Margin="10"/>
+            <CheckBox Background="Orchid" Name="checkBox5" Height="20" Margin="10"/>
         </StackPanel>
-        <ProgressBar Name ="ProgressBarTasks" Grid.Row="3" Height="22" Width="220" HorizontalAlignment="Left" Margin="10 0" />
-        <Button Name="buttonGoBack" Grid.Row="4" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,10,10" Click="buttonGoBack_Click">Назад</Button>
+        <ProgressBar  Background="Orange" Name ="ProgressBarTasks" Grid.Row="3" Height="22" Width="220" HorizontalAlignment="Left" Margin="10 0" />
+        <Button Name="buttonGoBack" FontSize="18" Background="Gold"  Grid.Row="3" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,2,9.6,5" Click="buttonGoBack_Click">Назад</Button>
 
     </Grid>
 </Page>

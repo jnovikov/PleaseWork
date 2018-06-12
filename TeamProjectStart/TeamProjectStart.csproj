@@ -89,6 +89,12 @@
     <Compile Include="DeadlinePage.xaml.cs">
       <DependentUpon>DeadlinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Rega.xaml.cs">
+      <DependentUpon>Rega.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Start.xaml.cs">
+      <DependentUpon>start.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TodayPlan.xaml.cs">
       <DependentUpon>TodayPlan.xaml</DependentUpon>
     </Compile>
@@ -120,6 +126,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Rega.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="start.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TodayPlan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

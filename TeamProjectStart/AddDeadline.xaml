@@ -7,23 +7,26 @@
       mc:Ignorable="d" 
       d:DesignHeight="360" d:DesignWidth="450"
       Title="AddDeadline">
+    <Page.Background>
+        <ImageBrush ImageSource="Images\jess-watters-515757-unsplash.jpg"></ImageBrush>
+    </Page.Background>
 
-    <Grid Background="DarkBlue">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Label VerticalAlignment="Bottom" Margin="30 0 0 0" Foreground="White" FontSize="15">Добавить дедлайн</Label>
+        <Label VerticalAlignment="Bottom" Margin="30 0 0 0" Foreground="Black" FontFamily="Segoe Print" FontSize="20">Добавить дедлайн</Label>
         <StackPanel Grid.Row="1" Orientation="Vertical" Grid.RowSpan="2" >
-            <TextBlock Foreground="White" Margin="15 20 10 0">Название</TextBlock>
+            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="15 20 10 0">Название</TextBlock>
             <TextBox Width="200" Height="18" Name="TextBoxDescription"/>
-            <TextBlock Foreground="White" Margin="15 10 0 0">Дата дедлайна</TextBlock>
+            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="15 10 0 0">Дата дедлайна</TextBlock>
             <Calendar FirstDayOfWeek="Monday"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="buttonAddDeadline" Width="80" Height="18" Margin="0 0 40 10" >Добавить</Button>
-            <Button Name="buttonGoBack" Width="80" Height="18" Margin="0 0 0 10" Click="buttonGoBack_Click">Назад</Button>
+            <Button Background="DarkOrange" Name="buttonAddDeadline" Width="80" Height="18" Margin="0 0 40 10" >Добавить</Button>
+            <Button Background="Gold" Name="buttonGoBack" Width="80" Height="18" Margin="0 0 0 10" Click="buttonGoBack_Click">Назад</Button>
 
         </StackPanel>
 
