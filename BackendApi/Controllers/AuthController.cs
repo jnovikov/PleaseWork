@@ -9,38 +9,33 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Task = System.Threading.Tasks.Task;
+using BackendApi.Helpers;
 
 namespace BackendApi.Controllers
 {
-    public class AuthController : Controller
-    {
-        private MyContext db;
-
-        public AuthController(MyContext db)
-        {
-            this.db = db;
-        }
-
+    public class AuthController : BaseController
+    { 
         [HttpPost("/register")]
-        public IActionResult GetLogin()
+        public IActionResult Register()
         {
-            var username = Request.Form["email"].ToString();
+            var email = Request.Form["email"].ToString();
             var password = Request.Form["password"].ToString();
+            var name = Request.Form["name"].ToString();
 
 
-            if ((username == "") || (password == ""))
+            if ((email == "") || (password == "") || (name == ""))
             {
-                return BadRequest(new {message = "Введите логин и пароль"});
+                return BadRequest(new {message = "Пожалуйста, заполните все поля"});
             }
 
 
-            var user = db.Users.FirstOrDefault(x => x.Email == username);
+            var user = db.Users.FirstOrDefault(x => x.Email == email);
             if (user != null)
             {
                 return BadRequest(new {message = "Пользователь с таким email уже зарегестрирован"});
             }
-
-            db.Users.Add(new User {Email = username, Password = password});
+            password = PasswordHash.GetHash(password);
+            db.Users.Add(new User {Email = email, Password = password, Name = name});
             db.SaveChanges();
 
             return Ok(new {message = "Вы успешно зарегистрировались"});
@@ -53,6 +48,7 @@ namespace BackendApi.Controllers
             var username = Request.Form["email"].ToString();
             var password = Request.Form["password"].ToString();
 
+            password = PasswordHash.GetHash(password);
 
             var identity = getIdentity(username, password);
             if (identity == null)
