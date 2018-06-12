@@ -89,7 +89,6 @@
     <Compile Include="DeadlinePage.xaml.cs">
       <DependentUpon>DeadlinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Task.cs" />
     <Compile Include="TodayPlan.xaml.cs">
       <DependentUpon>TodayPlan.xaml</DependentUpon>
     </Compile>
