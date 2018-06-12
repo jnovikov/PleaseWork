@@ -41,7 +41,7 @@ namespace BackendApi.Controllers
         {
             var user = CurrentUser;
             var deadlines = db.Deadlines.Where(x => x.UserId == user.Id).ToArray();
-            return Ok(new ObjectResult(deadlines));
+            return Ok(new {deadlines = deadlines});
         }
 
         [HttpPost("{id}")]
