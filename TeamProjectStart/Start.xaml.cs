@@ -24,5 +24,10 @@ namespace TeamProjectStart
         {
             InitializeComponent();
         }
+
+        private void buttonPassword_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Rega());
+        }
     }
 }
