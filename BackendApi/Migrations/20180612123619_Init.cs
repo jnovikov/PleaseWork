@@ -17,7 +17,10 @@ namespace BackendApi.Migrations
                     Password = table.Column<string>(maxLength: 150, nullable: true),
                     Name = table.Column<string>(maxLength: 150, nullable: true)
                 },
-                constraints: table => { table.PrimaryKey("PK_Users", x => x.Id); });
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Deadlines",
@@ -48,7 +51,8 @@ namespace BackendApi.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
                     WorkTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeadlineId = table.Column<int>(nullable: false)
+                    DeadlineId = table.Column<int>(nullable: false),
+                    IsDone = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20180612113930_Init")]
+    [Migration("20180612123619_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,8 @@ namespace BackendApi.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("DeadlineId");
+
+                    b.Property<bool>("IsDone");
 
                     b.Property<string>("Name");
 
@@ -86,7 +88,7 @@ namespace BackendApi.Migrations
             modelBuilder.Entity("BackendApi.Models.Task", b =>
                 {
                     b.HasOne("BackendApi.Models.Deadline", "Deadline")
-                        .WithMany()
+                        .WithMany("Tasks")
                         .HasForeignKey("DeadlineId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
