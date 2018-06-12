@@ -9,5 +9,6 @@ namespace BackendApi.Models
         public DateTime WorkTime { get; set; }
         public Deadline Deadline { get; set; }
         public int DeadlineId { get; set; }
+        public bool IsDone { get; set; }
     }
 }
