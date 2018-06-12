@@ -4,15 +4,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackendApi.Controllers
 {
     [Route("api/[controller]")]
     public class DeadlinesController : BaseController
     {
+        public DeadlinesController(MyContext db) : base(db)
+        {
+        }
 
         [HttpPost]
-        public IActionResult AddDeadline([FromForm]Deadline deadline)
+        [Authorize]
+        public IActionResult AddDeadline([FromForm] Deadline deadline)
         {
             if (deadline == null)
             {
@@ -20,48 +25,62 @@ namespace BackendApi.Controllers
                 return BadRequest(ModelState);
             }
 
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            var user = CurrentUser;
+
+            deadline.UserId = user.Id;
             db.Deadlines.Add(deadline);
             db.SaveChanges();
-            return Ok(deadline);
+            return Ok(new {message = "Deadline added"});
         }
 
-        [HttpPost]
-        public IActionResult DeleteDeadline([FromForm]Deadline deadline)
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetDeadlines()
         {
-            if (deadline == null)
-            {
-                ModelState.AddModelError("", "Не выбран дедлайн для удаления");
-                return BadRequest(ModelState);
-            }
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            db.Deadlines.FirstOrDefault(d => d.Name == deadline.Name);
-
-            db.SaveChanges();
-            return Ok(deadline);
+            var user = CurrentUser;
+            var deadlines = db.Deadlines.Where(x => x.UserId == user.Id).ToArray();
+            return Ok(new ObjectResult(deadlines));
         }
 
-        [HttpPost]
-        public IActionResult EditDeadline([FromForm]Deadline deadline)
-        {
-            if (deadline == null)
-            {
-                ModelState.AddModelError("", "Не выбран дедлайн для редактирования");
-                return BadRequest(ModelState);
-            }
+//        [HttpPost]
+//        public IActionResult DeleteDeadline([FromForm]Deadline deadline)
+//        {
+//            if (deadline == null)
+//            {
+//                ModelState.AddModelError("", "Не выбран дедлайн для удаления");
+//                return BadRequest(ModelState);
+//            }
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+//            if (!ModelState.IsValid)
+//                return BadRequest(ModelState);
 
-            db.Deadlines.FirstOrDefault(d => d.Name == deadline.Name);
+//            db.Deadlines.FirstOrDefault(d => d.Name == deadline.Name);
 
-            db.SaveChanges();
-            return Ok(deadline);
-        }
+//            db.SaveChanges();
+//            return Ok(deadline);
+//        }
+
+//        [HttpPost]
+//        public IActionResult EditDeadline([FromForm]Deadline deadline)
+//        {
+//            if (deadline == null)
+//            {
+//                ModelState.AddModelError("", "Не выбран дедлайн для редактирования");
+//                return BadRequest(ModelState);
+//            }
+
+//            if (!ModelState.IsValid)
+//                return BadRequest(ModelState);
+
+//            db.Deadlines.FirstOrDefault(d => d.Name == deadline.Name);
+
+//            db.SaveChanges();
+//            return Ok(deadline);
+//        }
+//    }
     }
 }

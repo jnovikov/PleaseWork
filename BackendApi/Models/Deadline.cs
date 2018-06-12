@@ -10,7 +10,7 @@ namespace BackendApi.Models
         [Required(ErrorMessage = "Укажите название дедлайна")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Укажите дату, к которой надо выполнить задание")]
-        public DateTime Finish { get; set; }
+        public DateTime? Finish { get; set; }
 
         public int UserId { get; set; }
         public User User { get; set; }

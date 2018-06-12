@@ -14,7 +14,11 @@ using BackendApi.Helpers;
 namespace BackendApi.Controllers
 {
     public class AuthController : BaseController
-    { 
+    {
+        public AuthController(MyContext db) : base(db)
+        {
+        }
+
         [HttpPost("/register")]
         public IActionResult Register()
         {
@@ -34,6 +38,7 @@ namespace BackendApi.Controllers
             {
                 return BadRequest(new {message = "Пользователь с таким email уже зарегестрирован"});
             }
+
             password = PasswordHash.GetHash(password);
             db.Users.Add(new User {Email = email, Password = password, Name = name});
             db.SaveChanges();
