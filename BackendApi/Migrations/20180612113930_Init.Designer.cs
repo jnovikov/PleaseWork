@@ -3,14 +3,16 @@ using System;
 using BackendApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20180612113930_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,8 +43,6 @@ namespace BackendApi.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("DeadlineId");
-
-                    b.Property<bool>("IsDone");
 
                     b.Property<string>("Name");
 
@@ -86,7 +86,7 @@ namespace BackendApi.Migrations
             modelBuilder.Entity("BackendApi.Models.Task", b =>
                 {
                     b.HasOne("BackendApi.Models.Deadline", "Deadline")
-                        .WithMany("Tasks")
+                        .WithMany()
                         .HasForeignKey("DeadlineId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
