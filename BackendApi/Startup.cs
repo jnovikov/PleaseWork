@@ -52,10 +52,14 @@ namespace BackendApi
                     };
                 });
 
-            string con =
-                "Server=(localdb)\\mssqllocaldb;Database=test;Trusted_Connection=True;MultipleActiveResultSets=true";
-            services.AddDbContext<MyContext>(options => options.UseSqlServer(con));
+//            string con =
+//                "Server=(localdb)\\mssqllocaldb;Database=test;Trusted_Connection=True;MultipleActiveResultSets=true";
+//            services.AddDbContext<MyContext>(options => options.UseSqlServer(con));
+
+
             services.AddMvc();
+            services.AddDbContext<MyContext>(options =>
+                options.UseSqlite("Data Source=mch.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

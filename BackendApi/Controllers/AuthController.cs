@@ -24,29 +24,35 @@ namespace BackendApi.Controllers
         [HttpPost("/register")]
         public IActionResult GetLogin()
         {
-            var username = Request.Form["email"];
-            var password = Request.Form["password"];
+            var username = Request.Form["email"].ToString();
+            var password = Request.Form["password"].ToString();
+
 
             if ((username == "") || (password == ""))
             {
-                return BadRequest("Введите логин и пароль");
+                return BadRequest(new {message = "Введите логин и пароль"});
             }
+
 
             var user = db.Users.FirstOrDefault(x => x.Email == username);
             if (user != null)
             {
-                return BadRequest("Пользователь с таким email уже существует");
+                return BadRequest(new {message = "Пользователь с таким email уже зарегестрирован"});
             }
 
-            return Ok($"Вы успешно зарегестрировались");
+            db.Users.Add(new User {Email = username, Password = password});
+            db.SaveChanges();
+
+            return Ok(new {message = "Вы успешно зарегистрировались"});
         }
 
 
         [HttpPost("/login")]
         public async Task Token()
         {
-            var username = Request.Form["email"];
-            var password = Request.Form["password"];
+            var username = Request.Form["email"].ToString();
+            var password = Request.Form["password"].ToString();
+
 
             var identity = getIdentity(username, password);
             if (identity == null)
