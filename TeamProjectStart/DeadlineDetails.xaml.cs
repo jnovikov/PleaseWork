@@ -20,11 +20,15 @@ namespace TeamProjectStart
     /// </summary>
     public partial class DeadlineDetails : Page
     {
+        //добавить readdata и savedata
         private List<Task> _tasks = new List<Task>();
         
+        //принять дедлайн и для него вывести данные 
         public DeadlineDetails()
         {
             InitializeComponent();
+
+
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
@@ -58,16 +62,18 @@ namespace TeamProjectStart
             newCheckBox.Checked += TaskFinishedChanged;
             newCheckBox.Unchecked += TaskFinishedChanged;
 
-            //PageContent.Add(newCheckBox);
+            PageContent.Children.Add(newCheckBox);
             _tasks.Add(task);
         }
-
+        
         private void TaskFinishedChanged(object sender, RoutedEventArgs e)
         {
             var neededCheckBox = sender as CheckBox;
             if (neededCheckBox != null)
             {
-                //var neededIndex = PageContent.C
+                var neededIndex = PageContent.Children.IndexOf(neededCheckBox);
+                _tasks[neededIndex].IsDone = !_tasks[neededIndex].IsDone;
+                UpdateProgressBar();
             }
         }
 

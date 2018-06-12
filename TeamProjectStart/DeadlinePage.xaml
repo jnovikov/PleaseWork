@@ -16,10 +16,9 @@
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="1" Foreground="White" HorizontalAlignment="Center" FontSize="15" Margin="185,0">Дедлайны</Label>
-        <StackPanel Grid.Row="1" Grid.RowSpan="3" Margin="0,33,0,10">
-            <TextBox Background="DarkBlue" Margin="5" MouseDoubleClick="TextBox_MouseDoubleClick"/>
-            <ProgressBar Height="15" Width="150" Margin="5"/>
-        </StackPanel>
+        <ScrollViewer Grid.Row="2">
+            <StackPanel Name="DeadlinesBlock"/>
+        </ScrollViewer>
         <Button Name="buttonAddDeadline" Margin="10,6,0,6" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadline_Click">+</Button>
         <Button Name="buttonGoBack" Grid.Row="3" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0" Click="buttonGoBack_Click">Назад</Button>
     </Grid>
