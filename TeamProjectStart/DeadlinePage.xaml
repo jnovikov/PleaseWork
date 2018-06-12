@@ -5,21 +5,26 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeamProjectStart"
       mc:Ignorable="d" 
-      d:DesignHeight="360" d:DesignWidth="450"
+      d:DesignHeight="300" d:DesignWidth="450"
       Title="DeadlinePage">
-
-    <Grid Background="DarkBlue">
+    <Page.Background>
+        <ImageBrush ImageSource="Images\jess-watters-483666-unsplash.jpg"></ImageBrush>
+    </Page.Background>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="18*"/>
-            <RowDefinition Height="104*"/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="17*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="1" Foreground="White" HorizontalAlignment="Center" FontSize="15" Margin="185,0">Дедлайны</Label>
-        <ScrollViewer Grid.Row="2">
-            <StackPanel Name="DeadlinesBlock"/>
-        </ScrollViewer>
-        <Button Name="buttonAddDeadline" Margin="10,6,0,6" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadline_Click">+</Button>
-        <Button Name="buttonGoBack" Grid.Row="3" Width="80" Height="18" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0" Click="buttonGoBack_Click">Назад</Button>
+        <Label Foreground="Black" FontFamily="Segoe Print" FontSize="20"  HorizontalAlignment="Center" Margin="160,30,158.6,0.4" Grid.RowSpan="2" Width="131" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>
+        <StackPanel Grid.Row="2" Grid.RowSpan="2">
+            <TextBlock Foreground="White" Margin="5" />
+            <ProgressBar Height="15" Margin="106,5,114.6,5" Background="DarkOrange" RenderTransformOrigin="0.748,0.198"/>
+        </StackPanel>
+        <Button  Name="buttonAddDeadline" Margin="0,0,0,28.4" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadline_Click" Grid.RowSpan="2" BorderThickness="0" Background="Gold">
+            <Image Source="Images\add.png" Height="38" Width="28" />
+        </Button>
+        <Button Name="buttonGoBack"  FontSize="18" Background="Gold"  Grid.Row="2" Height="34" VerticalAlignment="Bottom" Margin="0,0,-0.4,0" Click="buttonGoBack_Click" Grid.RowSpan="2" BorderThickness="0" >Назад</Button>
     </Grid>
 </Page>

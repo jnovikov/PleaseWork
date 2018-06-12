@@ -4,24 +4,32 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeamProjectStart"
-      mc:Ignorable="d" 
-      d:DesignHeight="360" d:DesignWidth="450"
+       mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="450"
       Title="TodayPlan">
-    <Grid Background="DarkBlue">
+    <Page.Background>
+        <ImageBrush ImageSource="Images\jess-watters-483666-unsplash.jpg"></ImageBrush>
+    </Page.Background>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
             <RowDefinition Height="237*"/>
             <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
-        <Label Foreground="White" Grid.Row="0" FontSize="14"  HorizontalAlignment="Center">Какой план на сегоня?
+        <Label Foreground="Black" FontFamily="Segoe Print" Grid.Row="0" FontSize="20"  HorizontalAlignment="Center" Margin="0,0,-0.4,0.4" Width="450" RenderTransformOrigin="0.499,0.436">Какой план на сегодня?
         </Label>
         <StackPanel Grid.Row="1">
-            <CheckBox Name="checkBox1" Height="20" Margin="10"/>
-
+            <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10" />
+            <CheckBox Background="OrangeRed" Name="checkBox2" Height="20" Margin="10"/>
+            <CheckBox Background="DodgerBlue"  Name="checkBox3" Height="20" Margin="10"/>
+            <CheckBox Background="Yellow" Name="checkBox4" Height="20" Margin="10"/>
+            <CheckBox Background="Orchid"  Name="checkBox5" Height="20" Margin="10"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="buttonViewDeadline" Margin="5 5 130 5" Width="80" Height="20" Click="buttonViewDeadline_Click">Дедлайны</Button>
-            <Button Name="buttonGoBack" Margin="130 5 5 5 " Width="80" Height="20" Click="buttonGoBack_Click">Выйти</Button>
+            <Button Name="buttonViewDeadline"  FontSize="18" Background="DarkOrange" Margin="0,0,0,-0.4" Width="223" Click="buttonViewDeadline_Click">Дедлайны
+
+            </Button>
+            <Button x:Name="buttonGoBack" FontSize="18" Background="Gold" Margin="0,0,0,-0.4" Width="223" Click="buttonGoBack_Click" Content="Выйти" />
         </StackPanel>
     </Grid>
 </Page>

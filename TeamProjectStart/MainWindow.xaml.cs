@@ -23,7 +23,7 @@ namespace TeamProjectStart
         public MainWindow()
         {
             InitializeComponent();
-            PageContent.Content = new TodayPlan();
+            PageContent.Content = new start();
         }
 
         private void PageContent_Navigated(object sender, NavigationEventArgs e)
