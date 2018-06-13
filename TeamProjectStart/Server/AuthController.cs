@@ -47,8 +47,7 @@ namespace TeamProjectStart
                     return UserToken.FromJson(contentMessage)?.AccessToken;
                 }
                 return "";
-            }
-                
+            }     
         }
     }
 }

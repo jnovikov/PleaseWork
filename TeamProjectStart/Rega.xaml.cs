@@ -40,8 +40,6 @@ namespace TeamProjectStart
             {
                 MessageBox.Show("OK");
             }
-
-
         }
     }
 }

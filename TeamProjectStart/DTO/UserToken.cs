@@ -13,6 +13,7 @@ namespace TeamProjectStart.DTO
         public string AccessToken { get; set; }
         public string Username { get; set; }
 
+
         public static UserToken FromJson(string json)
         {
             try
@@ -26,5 +27,4 @@ namespace TeamProjectStart.DTO
             }
         }
     }
-
 }

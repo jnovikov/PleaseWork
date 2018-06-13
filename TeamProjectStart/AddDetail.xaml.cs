@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamProjectStart.DTO;
 
 namespace TeamProjectStart
 {
@@ -20,7 +21,7 @@ namespace TeamProjectStart
     /// </summary>
     public partial class AddDetail : Page
     {
-        public event Action<Task> TaskAdded;
+        //public event Action<DTO.Task> TaskAdded;
 
         public AddDetail()
         {

@@ -46,9 +46,7 @@ namespace TeamProjectStart
             {
                 TokenClient.Token = result;
                 NavigationService.Navigate(new DeadlinePage());
-
             }
-
         }
     }
 }

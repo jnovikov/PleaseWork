@@ -15,6 +15,7 @@ namespace TeamProjectStart.DTO
         public uint TasksNum { get; set; }
         public uint TasksDone { get; set; }
 
+
         public static Deadline FromJson(string json)
         {
             try

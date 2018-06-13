@@ -17,7 +17,7 @@
             <RowDefinition Height="100*"/>
             <RowDefinition Height="17*"/>
         </Grid.RowDefinitions>
-        <Button Name="buttonAddDeadline" HorizontalAlignment="Left" Margin="30 10 0 0" Grid.Row="0" Width="50" Height="50" Click="buttonAddDeadline_Click" BorderThickness="0" Background="Green">
+        <Button Name="buttonAddDeadline" HorizontalAlignment="Left" Margin="30 10 0 0" Grid.Row="0" Width="50" Height="50" Click="buttonAddDeadline_Click_1" BorderThickness="0" Background="Green">
             <Image Source="Images\add.png" Height="38" Width="28" />
         </Button>
         <Label Foreground="Black" Grid.Row="1" Margin="130 0 0 15" FontFamily="Segoe Print" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Left" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>

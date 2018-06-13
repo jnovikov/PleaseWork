@@ -32,9 +32,9 @@ namespace TeamProjectStart
 
         private void buttonAddDeadline_Click(object sender, RoutedEventArgs e)
         {
-            //var addDeadlinePage = new AddDeadline();
+            var addDeadlinePage = new AddDeadline();
             //addDeadlinePage.DeadlineAdded += AddDeadlinePage_DeadlineAdded;
-            //NavigationService.Navigate(addDeadlinePage);
+            NavigationService.Navigate(addDeadlinePage);
         }
 
         private void AddDeadlinePage_DeadlineAdded(object obj) //принять дедлайн

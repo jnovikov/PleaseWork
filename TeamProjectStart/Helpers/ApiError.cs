@@ -23,7 +23,8 @@ namespace TeamProjectStart.Helpers
         public async static Task<ApiError> FromResponse(HttpResponseMessage message)
         {
             var code = (int)message.StatusCode;
-            if (code != 200) {
+            if (code != 200) // 200 is successful
+            {
                 var content = await message.Content.ReadAsStringAsync();
                 try
                 {
@@ -32,8 +33,7 @@ namespace TeamProjectStart.Helpers
                 } catch (Newtonsoft.Json.JsonReaderException)
                 {
                     return new ApiError(code, content);
-                }
-                
+                }     
             }
             return null;
         }

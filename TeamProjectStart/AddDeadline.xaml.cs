@@ -30,9 +30,22 @@ namespace TeamProjectStart
             NavigationService.GoBack();
         }
 
-        private void buttonGoBack_Click_1(object sender, RoutedEventArgs e)
+        private async void buttonAddDeadline_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            var apiData = new ApiData();
+            var name = textBoxName.Text;
+            var finish = calendar.SelectedDate;
+
+            var result = await apiData.AddDeadline(name, finish);
+
+            if (result != null)
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
+            else
+            {
+                MessageBox.Show("OK");
+            }
         }
     }
 }

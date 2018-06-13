@@ -86,8 +86,9 @@
     <Compile Include="AddDetail.xaml.cs">
       <DependentUpon>AddDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ApiData.cs" />
-    <Compile Include="AuthController.cs" />
+    <Compile Include="DTO\Task.cs" />
+    <Compile Include="Server\ApiData.cs" />
+    <Compile Include="Server\AuthController.cs" />
     <Compile Include="DeadlineDetails.xaml.cs">
       <DependentUpon>DeadlineDetails.xaml</DependentUpon>
     </Compile>
@@ -106,7 +107,7 @@
     <Compile Include="TodayPlan.xaml.cs">
       <DependentUpon>TodayPlan.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TokenClient.cs" />
+    <Compile Include="Server\TokenClient.cs" />
     <Page Include="AddDeadline.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
