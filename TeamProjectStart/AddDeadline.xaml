@@ -24,9 +24,9 @@
             <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 10 0 12">Когда дедлайн?</TextBlock>
             <Calendar/>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 100" >
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 90" >
             <Button Name="buttonAddDeadlineDetail" FontSize="15" Width="120" Height="25" Background="Green" Margin="0 0 35 0">Добавить</Button>
-            <Button Name ="buttonGoBack" Width="120" FontSize="15"  Height="25" Background="Gold">Назад</Button>
+            <Button Name ="buttonGoBack" Width="120" FontSize="15"  Height="25" Background="Gold" Click="buttonGoBack_Click_1">Назад</Button>
         </StackPanel>
 
     </Grid>

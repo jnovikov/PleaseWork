@@ -47,7 +47,7 @@ namespace BackendApi.Controllers
             {
                 deadline.Tasks = db.Tasks.Where(t => t.DeadlineId == deadline.Id).ToArray();
             }
-            return Ok(new {deadlines = deadlines});
+            return Ok(deadlines);
         }
 
         [HttpPost("{id}")]
