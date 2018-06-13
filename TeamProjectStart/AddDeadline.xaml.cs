@@ -30,6 +30,9 @@ namespace TeamProjectStart
             NavigationService.GoBack();
         }
 
-
+        private void buttonGoBack_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
