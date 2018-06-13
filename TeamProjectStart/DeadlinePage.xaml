@@ -17,17 +17,17 @@
             <RowDefinition Height="100*"/>
             <RowDefinition Height="17*"/>
         </Grid.RowDefinitions>
-        <Button Name="buttonAddDeadline" HorizontalAlignment="Left" Margin="30 0 0 0" Grid.Row="0" Width="50" Height="50" Click="buttonAddDeadline_Click" BorderThickness="0" Background="Green">
+        <Button Name="buttonAddDeadline" HorizontalAlignment="Left" Margin="30 10 0 0" Grid.Row="0" Width="50" Height="50" Click="buttonAddDeadline_Click" BorderThickness="0" Background="Green">
             <Image Source="Images\add.png" Height="38" Width="28" />
         </Button>
-        <Label Foreground="Black" Grid.Row="1" Margin="120 0 0 10" FontFamily="Segoe Print" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Left" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>
+        <Label Foreground="Black" Grid.Row="1" Margin="130 0 0 15" FontFamily="Segoe Print" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Left" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>
         <StackPanel Grid.Row="2" Grid.RowSpan="2">
-            <TextBlock Foreground="White" Margin="5" />
-            <ProgressBar Height="15" Margin="106,5,114.6,5" Background="DarkOrange" RenderTransformOrigin="0.748,0.198"/>
+            <TextBlock Foreground="White" Margin="5" FontSize="15"/>
+            <ProgressBar Height="25" Width="400"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button  FontSize="15" Height="30" Width="140" Margin="0 0 100 0" BorderThickness="0" Background="Red">Удалить</Button>
-            <Button Name="buttonGoBack" Height="30" Width="140" Margin="100 0 0 0"  FontSize="15" Background="Gold"  Click="buttonGoBack_Click" BorderThickness="0" >Назад</Button>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 30">
+            <Button  FontSize="15" Height="30" Width="140" Margin="0 0 10 0" Background="Tomato">Удалить</Button>
+            <Button Name="buttonGoBack" Height="30" Width="140" Margin="100 0 0 0"  FontSize="15" Background="Gold"  Click="buttonGoBack_Click">Назад</Button>
         </StackPanel>
     </Grid>
 </Page>

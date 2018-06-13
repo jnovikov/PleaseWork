@@ -12,18 +12,18 @@
     </Page.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="21*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" Grid.RowSpan="2">
+        <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 120 0 0">
             <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="18" Margin="0 10 0 12">Что нужно сделать?</TextBlock>
             <TextBox Width="250" Name="TextBoxDescription"/>
             <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 10 0 12">Когда?</TextBlock>
             <Calendar/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="buttonAddDeadlineDetail"  Width="80" Height="18" Margin="0 0 40 10" Click="buttonAddDeadlineDetail_Click">Добавить</Button>
-            <Button Name ="buttonGoBack" Width="80" Height="18" Margin="0 0 0 10" Click="buttonGoBack_Click">Назад</Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 80" >
+            <Button Name="buttonAddDeadlineDetail" FontSize="15" Width="120" Height="25" Background="Green" Margin="0 0 40 0" Click="buttonAddDeadlineDetail_Click">Добавить</Button>
+            <Button Name ="buttonGoBack" Width="120" FontSize="15"  Height="25" Background="Gold" Click="buttonGoBack_Click">Назад</Button>
         </StackPanel>
 
     </Grid>
