@@ -26,13 +26,13 @@
                 <PasswordBox Width="240" Height="25" Margin="70 10 10 10" ToolTip="Пароль должен быть содержать больше 7 символов" Name="password"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="230 15 0 0">
-                <Button Name="Cancel" Grid.Row="4" Background="DarkOrange" Grid.Column="1" Margin="10" Width="Auto" HorizontalAlignment="Center"  >
+                <Button Name="buttonSingup" Grid.Row="4" Background="DarkOrange" Grid.Column="1" Margin="10" Width="Auto" HorizontalAlignment="Center"  >
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect>
                     <TextBlock FontSize="18" Margin="10 0">Зарегестрироваться</TextBlock>
                 </Button>
-                <Button  Background="Gold" Width="193" HorizontalAlignment="Center" Margin="10">
+                <Button Name="buttonCancel" Background="Gold" Width="193" HorizontalAlignment="Center" Margin="10" Click="buttonCancel_Click">
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect>

@@ -17,19 +17,21 @@
             <RowDefinition Height="51*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Button  Name="buttonAddDeadline" Margin="0,0,0,28.4" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadlineDetail_Click" Grid.RowSpan="2" BorderThickness="0" Background="Gold">
+        <Button  Name="buttonAddDeadline" Margin="30 2 0 0" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadlineDetail_Click" BorderThickness="0" Background="Green">
             <Image Source="Images\add.png" Height="38" Width="28" />
         </Button>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="76,0,-0.4,0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374">Здесь будет название дедлайна</TextBlock>
-        <StackPanel Grid.Row="2" Grid.RowSpan="2">
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40 0 0 0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374">Здесь будет название дедлайна</TextBlock>
+        
+            <StackPanel Grid.Row="2" Margin="80 0 0 0">
             <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10"/>
             <CheckBox Background="OrangeRed" Name="checkBox2" Height="20" Margin="10"/>
             <CheckBox Background="DodgerBlue" Name="checkBox3" Height="20" Margin="10"/>
             <CheckBox  Background="Yellow" Name="checkBox4" Height="20" Margin="10"/>
             <CheckBox Background="Orchid" Name="checkBox5" Height="20" Margin="10"/>
         </StackPanel>
-        <ProgressBar  Background="Orange" Name ="ProgressBarTasks" Grid.Row="3" Height="22" Width="220" HorizontalAlignment="Left" Margin="10 0" />
-        <Button Name="buttonGoBack" FontSize="18" Background="Gold"  Grid.Row="3" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,2,9.6,5" Click="buttonGoBack_Click">Назад</Button>
+
+        <ProgressBar Name ="ProgressBarTasks" Grid.Row="2" Height="30" Width="620" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="90 0 0 20" />
+        <Button Name="buttonGoBack" FontSize="18" Background="Gold" Margin="0 0 30 0" Grid.Row="3" Width="150" Height="28" VerticalAlignment="Center" HorizontalAlignment="Right" Click="buttonGoBack_Click">Назад</Button>
 
     </Grid>
 </Page>
