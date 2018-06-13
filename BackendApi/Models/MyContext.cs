@@ -17,6 +17,12 @@ namespace BackendApi.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Deadline>().HasMany<Task>(d => d.Tasks)
+                .WithOne(t => t.Deadline).IsRequired();
+
+            modelBuilder.Entity<Task>().HasOne<Deadline>(t => t.Deadline)
+                .WithMany(d => d.Tasks);
+
             modelBuilder.Entity<Deadline>()
                 .Property(f => f.Finish)
                 .HasColumnType("datetime2");

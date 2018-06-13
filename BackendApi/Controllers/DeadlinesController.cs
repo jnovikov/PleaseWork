@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Authorization;
 namespace BackendApi.Controllers
 {
     [Route("api/[controller]")]
-    public class DeadlinesController : BaseController
+    public class DeadlinesController : BaseController    
     {
-        public DeadlinesController(MyContext db) : base(db) { }
+        public DeadlinesController(MyContext db) : base(db)
+        {
+        }
 
         [HttpPost]
         [Authorize]
@@ -41,12 +43,16 @@ namespace BackendApi.Controllers
         {
             var user = CurrentUser;
             var deadlines = db.Deadlines.Where(x => x.UserId == user.Id).ToArray();
+            foreach (var deadline in deadlines)
+            {
+                deadline.Tasks = db.Tasks.Where(t => t.DeadlineId == deadline.Id).ToArray();
+            }
             return Ok(new {deadlines = deadlines});
         }
 
         [HttpPost("{id}")]
         [Authorize]
-        public IActionResult AddTask(int id, [FromForm]Models.Task task)
+        public IActionResult AddTask(int id, [FromForm] Models.Task task)
         {
             if (task == null)
             {
@@ -54,12 +60,17 @@ namespace BackendApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var deadline = db.Deadlines.FirstOrDefault(d => d.Id == id);
+            var deadline = FindDeadline(id);
+
+            if (deadline == null)
+            {
+                return NotFound(new {message = "Дедлайн не найден"});
+            }
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            task.DeadlineId = deadline.Id;
+            task.Deadline = deadline;
             db.Tasks.Add(task);
             db.SaveChanges();
             return Ok(task);
@@ -67,9 +78,10 @@ namespace BackendApi.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult DeleteDeadline(int id)
         {
-            var deadline = db.Deadlines.FirstOrDefault(d => d.Id == id);
+            var deadline = FindDeadline(id);
 
             if (deadline == null)
             {
@@ -77,35 +89,35 @@ namespace BackendApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-
             db.Deadlines.Remove(deadline);
             db.SaveChanges();
             return Ok(deadline);
         }
 
         [HttpPut("{id}")]
-        public IActionResult EditDeadline(int id)
+        [Authorize]
+        public IActionResult EditDeadline(int id, [FromForm] Deadline _deadline)
         {
-            var deadline = db.Deadlines.FirstOrDefault(d => d.Id == id);
+            var deadline = FindDeadline(id);
 
             if (deadline == null)
             {
                 ModelState.AddModelError("", "Не выбран дедлайн для редактирования");
-                return BadRequest(ModelState);
+                return NotFound(ModelState);
             }
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            //TO DO: редактирование дедлайна
-            // Как будет происходить редактирование?
-
-
+            deadline.Finish = _deadline.Finish;
+            deadline.Name = _deadline.Name;
             db.SaveChanges();
             return Ok(deadline);
+        }
+
+        private Deadline FindDeadline(int id)
+        {
+            return db.Deadlines.FirstOrDefault(d => d.Id == id && d.UserId == CurrentUser.Id);
         }
     }
 }
