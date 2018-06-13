@@ -18,7 +18,7 @@ namespace BackendApi.Models
         [MaxLength(150)]
         public string Name { get; set; }
         
-        public virtual ICollection<Deadline> Deadlines { get; set; }
+        public ICollection<Deadline> Deadlines { get; set; }
        
     }
 }
