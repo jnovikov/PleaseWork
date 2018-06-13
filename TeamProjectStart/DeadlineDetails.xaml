@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeamProjectStart"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="450"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="DeadlineDetails">
     <Page.Background>
         <ImageBrush ImageSource="Images\jess-watters-515757-unsplash.jpg"></ImageBrush>
@@ -17,7 +17,7 @@
             <RowDefinition Height="51*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Button  Name="buttonAddDeadline" Margin="0,0,0,28.4" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadline_Click" Grid.RowSpan="2" BorderThickness="0" Background="Gold">
+        <Button  Name="buttonAddDeadline" Margin="0,0,0,28.4" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadlineDetail_Click" Grid.RowSpan="2" BorderThickness="0" Background="Gold">
             <Image Source="Images\add.png" Height="38" Width="28" />
         </Button>
         <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="76,0,-0.4,0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374">Здесь будет название дедлайна</TextBlock>

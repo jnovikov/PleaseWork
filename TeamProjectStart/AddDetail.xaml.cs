@@ -32,8 +32,8 @@ namespace TeamProjectStart
             NavigationService.GoBack();
         }
 
-        //private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
-        //{
+        private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
+        {
         //    if (!string.IsNullOrWhiteSpace(TextBoxDescription.Text))
         //    {
         //        //TaskAdded?.Invoke(new Task
@@ -43,6 +43,6 @@ namespace TeamProjectStart
         //        //NavigationService.GoBack();
         //    }
 
-        //}
+        }
     }
 }
