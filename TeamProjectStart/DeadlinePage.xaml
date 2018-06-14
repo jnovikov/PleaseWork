@@ -17,20 +17,19 @@
             <RowDefinition Height="100*"/>
             <RowDefinition Height="17*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button Name="buttonAddDeadline" Margin="30 6 430 0" Width="50" Height="50" Click="buttonAddDeadline_Click" BorderThickness="0" Background="Green">
+        <Button Name="buttonAddDeadline" HorizontalAlignment="Left" Margin="30 0 0 0" Width="50" Height="50" Click="buttonAddDeadline_Click" BorderThickness="0" Background="Green">
                 <Image Source="Images\add.png" Height="38" Width="28" />
-            </Button>
-            <Button Name="buttonEdit" FontSize="18" Background="RosyBrown" Width="150" Height="28" Click="buttonEdit_Click">Открыть</Button>
-        </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Right" Name="buttonEdit" Margin="0 0 140 0" FontSize="18" Background="RosyBrown" Width="150" Height="28" Click="buttonEdit_Click">Открыть</Button>
         <Label Foreground="Black" Grid.Row="1" Margin="130 0 0 10" FontFamily="Segoe Print" FontSize="24" VerticalAlignment="Bottom"  HorizontalAlignment="Left" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>
         <ScrollViewer Grid.Row="2" Margin="120 5 0 0">
             <ListBox Name="listBoxDeadlines" Background="{x:Null}" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Name="DeadlinesBlock" Grid.Row="2" Margin="10 20 0 0">
-                            <TextBlock Name="textBlockName" FontSize="18" Margin="0 0 0 7" Text="{Binding Path=Name}"/>
-                            <ProgressBar Name="progressBarDeadline" Width="200" Height="25" HorizontalAlignment="Left" Value="{Binding Path=PercentDone}"/>
+                            <TextBlock Name="textBlockName" FontSize="18" Margin="0 0 0 5" Text="{Binding Path=Name}"/>
+                            <TextBlock Name="textBlockDate" FontSize="16" Margin="0 0 0 7" Text="{Binding Path=Finish}"/>
+                            <ProgressBar Name="progressBarDeadline" Width="200" Height="23" HorizontalAlignment="Left" Value="{Binding Path=PercentDone}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

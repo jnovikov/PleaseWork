@@ -86,6 +86,9 @@
     <Compile Include="AddDetail.xaml.cs">
       <DependentUpon>AddDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeadlineEdit.xaml.cs">
+      <DependentUpon>DeadlineEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DTO\Task.cs" />
     <Compile Include="Server\ApiData.cs" />
     <Compile Include="Server\AuthController.cs" />
@@ -117,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeadlineDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeadlineEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

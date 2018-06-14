@@ -42,7 +42,7 @@ namespace TeamProjectStart
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new DeadlinePage());
         }
 
         private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
@@ -84,6 +84,11 @@ namespace TeamProjectStart
             //var doneTasks = _tasks.FindAll(t => t.IsDone == true);
             // var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
             // ProgressBarTasks.Value = percentOfDoneTasks * 100;
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeadlineEdit());
         }
     }
 }
