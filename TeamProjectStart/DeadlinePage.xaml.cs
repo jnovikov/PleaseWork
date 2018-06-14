@@ -64,7 +64,7 @@ namespace TeamProjectStart
             }
         }
 
-        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        private void buttonOpen_Click(object sender, RoutedEventArgs e)
         {
             var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
             if (selectedDeadline == null)

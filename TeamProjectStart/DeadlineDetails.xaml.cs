@@ -26,18 +26,24 @@ namespace TeamProjectStart
 
         public Deadline _deadline;
 
+        private List<DTO.Task> tasks;
+
         public DeadlineDetails(Deadline deadline) 
         {
             InitializeComponent();
             _deadline = deadline;
             deadlineBlock.Text = _deadline.Name;
             UpdateTasks();
+
         }
 
         private async void UpdateTasks()
         {
             listBoxTasks.ItemsSource = null;
-            listBoxTasks.ItemsSource = await apiData.GetTasksForDeadline(_deadline.Id);
+            tasks = await apiData.GetTasksForDeadline(_deadline.Id);
+            listBoxTasks.ItemsSource = tasks;
+            UpdateProgressBar();
+
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
@@ -53,42 +59,53 @@ namespace TeamProjectStart
         }
 
 
-        private void AddCheckBox(DTO.Task task)
-        {
-            //var newCheckBox = new CheckBox();
-            //newCheckBox.Margin = new Thickness(0, 5, 0, 5);
-
-            ////newCheckBox.Content = task.Description;
-            ////newCheckBox.IsChecked = task.IsDone;
-
-            //newCheckBox.Checked += TaskFinishedChanged;
-            //newCheckBox.Unchecked += TaskFinishedChanged;
-
-            //PageContent.Children.Add(newCheckBox);
-            //_tasks.Add(task);
-        }
-        
-        private void TaskFinishedChanged(object sender, RoutedEventArgs e)
-        {
-        //    var neededCheckBox = sender as CheckBox;
-        //    if (neededCheckBox != null)
-        //    {
-        //        var neededIndex = PageContent.Children.IndexOf(neededCheckBox);
-        //       // _tasks[neededIndex].IsDone = !_tasks[neededIndex].IsDone;
-        //        UpdateProgressBar();
-        //    }
-        }
-
         private void UpdateProgressBar()
         {
-            //var doneTasks = _tasks.FindAll(t => t.IsDone == true);
-            // var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
-            // ProgressBarTasks.Value = percentOfDoneTasks * 100;
+            if (tasks == null)
+            {
+                ProgressBarTasks.Value = 0;
+                return;
+            }
+            var doneTasks = tasks.FindAll(t => t.IsDone == true);
+            var percentOfDoneTasks = tasks.Count != 0 ? (double)doneTasks.Count / tasks.Count : 0;
+            ProgressBarTasks.Value = percentOfDoneTasks * 100;
         }
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new DeadlineEdit());
+        }
+
+        private async void checkBox1_Checked(object sender, RoutedEventArgs e)
+        {
+            var cb = (sender as CheckBox);
+            var id = (int)cb.Tag;
+            var value = cb.IsChecked;
+            //var api = new ApiData();
+            if (value == true)
+            {
+                await apiData.SetDone(id);
+            } else
+            {
+                await apiData.SetUndone(id);
+            }
+            UpdateTasks();
+        }
+
+        private async void buttonDeleteTask_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTask = listBoxTasks.SelectedItem as DTO.Task;
+            if (selectedTask == null)
+                MessageBox.Show("Выберите задачу для удаления.");
+            else
+            {
+                if (MessageBox.Show("Вы действительно хотите удалить задачу?", "Question",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    await apiData.DeleteTask(selectedTask.Id);
+                    UpdateTasks();
+                }
+            }
         }
     }
 }
