@@ -22,10 +22,14 @@ namespace TeamProjectStart
     public partial class AddDetail : Page
     {
         ApiData apiData = new ApiData();
+        //int _deadlineId;
+        Deadline _deadline;
 
-        public AddDetail()
+        public AddDetail(Deadline deadline)
         {
             InitializeComponent();
+            //_deadlineId = deadlineId;
+            _deadline = deadline;
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
@@ -38,27 +42,18 @@ namespace TeamProjectStart
             var name = textBoxName.Text;
             var worktime = calendar.SelectedDate;
 
-            //var result = await apiData.AddTask(deadlineId, name, worktime); 
+            var result = await apiData.AddTask(_deadline.Id, name, worktime);
 
-            //if (result != null)
-            //{
-            //    MessageBox.Show(result.ErrorMessage);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("OK");
-            //}
-            NavigationService.GoBack();
-
-
-            //if (!string.IsNullOrWhiteSpace(textBoxName.Text))
-            //{
-            //    TaskAdded?.Invoke(new DTO.Task
-            //    {
-            //        Name = textBoxName.Text
-            //    });
-            //    NavigationService.GoBack();
-            //}
+            if (result != null)
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
+            else
+            {
+                MessageBox.Show("OK");
+            }
+            var deadlineDetailsPage = new DeadlineDetails(_deadline);
+            NavigationService.Navigate(deadlineDetailsPage);
         }
     }
 }

@@ -30,7 +30,13 @@ namespace TeamProjectStart
         {
             InitializeComponent();
             _deadline = deadline;
-            //listBoxTasks.ItemsSource 
+            
+        }
+
+        private async void UpdateTasks()
+        {
+            listBoxTasks.ItemsSource = null;
+            listBoxTasks.ItemsSource = await apiData.GetTasksForDeadline(_deadline.Id);
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
@@ -40,16 +46,11 @@ namespace TeamProjectStart
 
         private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
         {
-            var addDetailWindow = new AddDetail();
-            //addDetailWindow.TaskAdded += AddTask;
+            var addDetailWindow = new AddDetail(_deadline);
             NavigationService.Navigate(addDetailWindow);
+            UpdateTasks();
         }
 
-        private void AddTask(DTO.Task task)
-        {
-            AddCheckBox(task);
-            UpdateProgressBar();
-        }
 
         private void AddCheckBox(DTO.Task task)
         {

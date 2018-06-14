@@ -23,7 +23,7 @@ namespace TeamProjectStart
         public MainWindow()
         {
             InitializeComponent();
-            PageContent.Content = new DeadlinePage();
+            PageContent.Content = new start();
         }
     }
 }
