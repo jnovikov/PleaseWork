@@ -11,11 +11,13 @@ namespace TeamProjectStart
 {
     public class ApiData
     {
+        const string ServerUrl = "http://pw.heck.today/api";
+
         public async Task<List<Deadline>> GetDeadlines()
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.GetAsync("http://pw.heck.today/api/deadlines");
+                var response = await client.GetAsync($"{ServerUrl}/deadlines");
                 var responseString = await response.Content.ReadAsStringAsync();
                 var deadlines = Deadline.ListFromJson(responseString);
                 return deadlines;
@@ -26,7 +28,7 @@ namespace TeamProjectStart
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.GetAsync("http://pw.heck.today/api/tasks");
+                var response = await client.GetAsync($"{ServerUrl}/tasks");
                 var responseString = await response.Content.ReadAsStringAsync();
                 var tasks = DTO.Task.ListFromJson(responseString);
                 return tasks?.Where(t => t.WorkTime != null && t.WorkTime.Value.Day == DateTime.Now.Day).OrderByDescending(t => t.WorkTime).ToList();
@@ -43,7 +45,7 @@ namespace TeamProjectStart
                     {"finish", finish.Value.ToString("yyyy-MM-dd'T'HH:mm:ss")},
                 };
                 var content = new FormUrlEncodedContent(values);
-                var response = await client.PostAsync("http://pw.heck.today/api/deadlines", content);
+                var response = await client.PostAsync($"{ServerUrl}/deadlines", content);
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
@@ -53,7 +55,7 @@ namespace TeamProjectStart
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.DeleteAsync($"http://pw.heck.today/api/deadlines/{id}");
+                var response = await client.DeleteAsync($"{ServerUrl}/deadlines/{id}");
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
@@ -69,7 +71,7 @@ namespace TeamProjectStart
                     {"finish", finish.Value.ToString("yyyy-MM-dd'T'HH:mm:ss")},
                 };
                 var content = new FormUrlEncodedContent(values);
-                var response = await client.PutAsync($"http://pw.heck.today/api/deadlines/{id}", content);
+                var response = await client.PutAsync($"{ServerUrl}/deadlines/{id}", content);
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
@@ -85,7 +87,7 @@ namespace TeamProjectStart
                     {"worktime", workTime.Value.ToString("yyyy-MM-dd'T'HH:mm:ss")}
                 };
                 var content = new FormUrlEncodedContent(values);
-                var response = await client.PostAsync($"http://pw.heck.today/api/deadlines/{id}", content);
+                var response = await client.PostAsync($"{ServerUrl}/deadlines/{id}", content);
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
@@ -95,7 +97,7 @@ namespace TeamProjectStart
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/done", null);
+                var response = await client.PostAsync($"{ServerUrl}/tasks/{id}/done", null);
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
@@ -105,7 +107,7 @@ namespace TeamProjectStart
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/undone", null);
+                var response = await client.PostAsync($"{ServerUrl}/tasks/{id}/undone", null);
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
@@ -115,7 +117,7 @@ namespace TeamProjectStart
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.GetAsync($"http://pw.heck.today/api/deadlines/{id}");
+                var response = await client.GetAsync($"{ServerUrl}/deadlines/{id}");
                 var responseString = await response.Content.ReadAsStringAsync();
                 var tasks = DTO.Task.ListFromJson(responseString);
                 return tasks;
@@ -126,7 +128,7 @@ namespace TeamProjectStart
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.DeleteAsync($"http://pw.heck.today/api/tasks/{id}");
+                var response = await client.DeleteAsync($"{ServerUrl}/tasks/{id}");
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
