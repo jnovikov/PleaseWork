@@ -73,6 +73,13 @@ namespace TeamProjectStart
                 finish = finish.Value.AddHours(hour);
                 finish = finish.Value.AddMinutes(minutes);
 
+                if (finish.Value < DateTime.Now)
+                {
+                    MessageBox.Show("Дата выбрана некорректно", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+
                 var result = await apiData.EditDeadline(_deadline.Id, name, finish);
 
                 if (result != null)

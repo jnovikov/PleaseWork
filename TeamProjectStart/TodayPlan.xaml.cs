@@ -20,6 +20,8 @@ namespace TeamProjectStart
     /// </summary>
     public partial class TodayPlan : Page
     {
+        public ApiData apiData = new ApiData();
+
         public TodayPlan()
         {
             InitializeComponent();
@@ -28,8 +30,7 @@ namespace TeamProjectStart
 
         private async void UpdateTasks()
         {
-            var ad = new ApiData();
-            var tasks = await ad.GetTasksForToday();
+            var tasks = await apiData.GetTasksForToday();
             tasksBox.ItemsSource = tasks;
         }
 
@@ -41,6 +42,23 @@ namespace TeamProjectStart
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new start());
+        }
+
+        private async void checkBox_Checked(object sender, RoutedEventArgs e)
+        {
+            var cb = (sender as CheckBox);
+            var id = (int)cb.Tag;
+            var value = cb.IsChecked;
+            //var api = new ApiData();
+            if (value == true)
+            {
+                await apiData.SetDone(id);
+            }
+            else
+            {
+                await apiData.SetUndone(id);
+            }
+            UpdateTasks();
         }
     }
 }

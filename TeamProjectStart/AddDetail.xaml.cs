@@ -49,6 +49,12 @@ namespace TeamProjectStart
                     MessageBox.Show("Заполите или выберите всю информацию о дедлайне", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+
+                if (worktime.Value < DateTime.Now)
+                {
+                    MessageBox.Show("Дата выбрана некорректно", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 
 
                 var result = await apiData.AddTask(_deadline.Id, name, worktime);

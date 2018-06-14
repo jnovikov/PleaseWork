@@ -24,7 +24,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <CheckBox FontSize="18" Name="checkBox" Height="20" Margin="10" Content="{Binding Path=Name}" IsChecked="{Binding Path=IsDone}" />
+                            <CheckBox Checked="checkBox_Checked" Unchecked="checkBox_Checked" FontSize="18" Name="checkBox" Height="20" Margin="10" Content="{Binding Path=Name}" IsChecked="{Binding Path=IsDone}" Tag="{Binding Path=Id}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
