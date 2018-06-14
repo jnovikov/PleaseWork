@@ -75,6 +75,22 @@ namespace BackendApi.Controllers
             db.SaveChanges();
             return Ok(task);
         }
+        
+        [HttpGet("{id}")]
+        [Authorize]
+        public IActionResult GetTasksForDeadline(int id)
+        {
+            var deadline = FindDeadline(id);
+
+            if (deadline == null)
+            {
+                return NotFound(new {message = "Дедлайн не найден"});
+            }
+
+            var tasks = db.Tasks.Where(x => x.DeadlineId == deadline.Id).ToArray();
+            return Ok(tasks);
+        }
+        
 
 
         [HttpDelete("{id}")]
