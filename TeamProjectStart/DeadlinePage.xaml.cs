@@ -47,30 +47,43 @@ namespace TeamProjectStart
             UpdateDeadlines();
         }
 
-
         private async void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
-            if (selectedDeadline == null)
-                MessageBox.Show("Выберите дедлайн для удаления.");
-            else
+            try
             {
-                if (MessageBox.Show("Вы действительно хотите удалить дедлайн?", "Question",
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
+                if (selectedDeadline == null)
+                    MessageBox.Show("Выберите дедлайн для удаления", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
                 {
-                    await apiData.DeleteDeadline(selectedDeadline.Id);
-                    UpdateDeadlines();
+                    if (MessageBox.Show("Вы действительно хотите удалить дедлайн?", "Question",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    {
+                        await apiData.DeleteDeadline(selectedDeadline.Id);
+                        UpdateDeadlines();
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void buttonOpen_Click(object sender, RoutedEventArgs e)
         {
-            var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
-            if (selectedDeadline == null)
-                MessageBox.Show("Выберите дедлайн, который Вы хотите открыть.");
-            var deadlineDetailsPage = new DeadlineDetails(selectedDeadline);
-            NavigationService.Navigate(deadlineDetailsPage);
+            try
+            {
+                var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
+                if (selectedDeadline == null)
+                    MessageBox.Show("Выберите дедлайн, который Вы хотите открыть", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                var deadlineDetailsPage = new DeadlineDetails(selectedDeadline);
+                NavigationService.Navigate(deadlineDetailsPage);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

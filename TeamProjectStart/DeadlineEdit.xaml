@@ -17,8 +17,8 @@
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontFamily="Segoe Print" Margin="50 20 0 0">Редактировать дедлайн</Label>
-        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0">
-            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="18" Margin="0 20 0 5">Название</TextBlock>
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="18" Margin="0 15 0 5">Название</TextBlock>
             <TextBox Width="250" Name="textBoxName"/>
             <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 5 0 5">Когда дедлайн?</TextBlock>
             <Calendar Name="calendar"/>

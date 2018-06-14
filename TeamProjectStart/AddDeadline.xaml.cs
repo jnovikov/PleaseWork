@@ -47,28 +47,43 @@ namespace TeamProjectStart
 
         private async void buttonAddDeadline_Click(object sender, RoutedEventArgs e)
         {
-            var apiData = new ApiData();
-            var name = textBoxName.Text;
-            var finish = calendar.SelectedDate;
-
-            var hour = double.Parse(comboBoxHour.SelectedItem.ToString());
-            var minutes = double.Parse(comboBoxMinute.SelectedItem.ToString());
-            finish = finish.Value.AddHours(hour);
-            finish = finish.Value.AddMinutes(minutes);
-
-
-            var result = await apiData.AddDeadline(name, finish);
-
-            if (result != null)
+            try
             {
-                MessageBox.Show(result.ErrorMessage);
+                var apiData = new ApiData();
+                var name = textBoxName.Text;
+                var finish = calendar.SelectedDate;
+
+                if (name == null || finish == null)
+                {
+                    MessageBox.Show("Заполите или выберите всю информацию о дедлайне", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                  
+
+                var hour = double.Parse(comboBoxHour.SelectedItem.ToString());
+                var minutes = double.Parse(comboBoxMinute.SelectedItem.ToString());
+                finish = finish.Value.AddHours(hour);
+                finish = finish.Value.AddMinutes(minutes);
+
+
+
+                var result = await apiData.AddDeadline(name, finish);
+
+                if (result != null)
+                {
+                    MessageBox.Show(result.ErrorMessage);
+                }
+                else
+                {
+                    MessageBox.Show("Дедлайн добавлен успешно", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                var deadlinePage = new DeadlinePage();
+                NavigationService.Navigate(deadlinePage);
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Дедлайн добавлен успешно");
+                MessageBox.Show(ex.Message);
             }
-            var deadlinePage = new DeadlinePage();
-            NavigationService.Navigate(deadlinePage);
         }
     }
 }

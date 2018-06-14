@@ -34,19 +34,28 @@ namespace TeamProjectStart
 
         private void buttonLogin_Click(object sender, RoutedEventArgs e)
         {
-            var ac = new AuthController();
-            var email = textBoxEmail.Text;
-            var password = textBoxPassword.Password;
-            ApiError error;
-            var result = ac.Login(email, password, out error);
-            if (error != null)
+            try
             {
-                MessageBox.Show(error.ErrorMessage);
-            } else
-            {
-                TokenClient.Token = result;
-                NavigationService.Navigate(new TodayPlan());
+                var ac = new AuthController();
+                var email = textBoxEmail.Text;
+                var password = textBoxPassword.Password;
+                ApiError error;
+                var result = ac.Login(email, password, out error);
+                if (error != null)
+                {
+                    MessageBox.Show(error.ErrorMessage);
+                }
+                else
+                {
+                    TokenClient.Token = result;
+                    NavigationService.Navigate(new TodayPlan());
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
