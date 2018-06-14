@@ -55,7 +55,7 @@ namespace TeamProjectStart
                 var values = new Dictionary<string, string>
                 {
                      { "name", name },
-                     { "finish", finish.ToString() },
+                     { "finish", finish.ToString() }, // TO DO: with value
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PutAsync($"http://pw.heck.today/api/deadlines/{id}", content);
@@ -64,19 +64,30 @@ namespace TeamProjectStart
             }
         }
 
-        public async Task<ApiError> AddTask(int id, string name, DateTime workTime)
+        public async Task<ApiError> AddTask(int id, string name, DateTime? workTime)
         {
             using (var client = TokenClient.GetClient())
             {
                 var values = new Dictionary<string, string>
                 {
                      { "name", name },
-                     { "workTime", workTime.ToString() }
+                     { "workTime", workTime.Value.ToString("yyyy-MM-dd'T'HH:mm:ss") }
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync($"http://pw.heck.today/api/deadlines/{id}", content);
                 var error = await ApiError.FromResponse(response);
                 return error;
+            }
+        }
+
+        public async Task<List<DTO.Task>> GetTasksForDeadline(int id)
+        {
+            using (var client = TokenClient.GetClient())
+            {
+                var response = await client.GetAsync($"http://pw.heck.today/api/deadlines/{id}");
+                var responseString = await response.Content.ReadAsStringAsync();
+                var tasks = DTO.Task.ListFromJson(responseString);
+                return tasks;
             }
         }
     }
