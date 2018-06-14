@@ -59,13 +59,10 @@ namespace TeamProjectStart
                     return;
                 }
                   
-
                 var hour = double.Parse(comboBoxHour.SelectedItem.ToString());
                 var minutes = double.Parse(comboBoxMinute.SelectedItem.ToString());
                 finish = finish.Value.AddHours(hour);
                 finish = finish.Value.AddMinutes(minutes);
-
-
 
                 var result = await apiData.AddDeadline(name, finish);
 

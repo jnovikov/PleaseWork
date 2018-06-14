@@ -73,7 +73,7 @@ namespace TeamProjectStart
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DeadlineEdit());
+            NavigationService.Navigate(new DeadlineEdit(_deadline));
         }
 
         private async void checkBox1_Checked(object sender, RoutedEventArgs e)

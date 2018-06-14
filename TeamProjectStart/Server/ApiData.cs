@@ -59,14 +59,14 @@ namespace TeamProjectStart
             }
         }
 
-        public async Task<ApiError> EditDeadline(int id, string name, DateTime finish)
+        public async Task<ApiError> EditDeadline(int id, string name, DateTime? finish)
         {
             using (var client = TokenClient.GetClient())
             {
                 var values = new Dictionary<string, string>
                 {
                     {"name", name},
-                    {"finish", finish.ToString()}, // TO DO: with value
+                    {"finish", finish.Value.ToString("yyyy-MM-dd'T'HH:mm:ss")},
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PutAsync($"http://pw.heck.today/api/deadlines/{id}", content);

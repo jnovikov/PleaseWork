@@ -76,7 +76,7 @@ namespace TeamProjectStart
             {
                 var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
                 if (selectedDeadline == null)
-                    MessageBox.Show("Выберите дедлайн, который Вы хотите открыть", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Выберите дедлайн, который Вы хотите открыть.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 var deadlineDetailsPage = new DeadlineDetails(selectedDeadline);
                 NavigationService.Navigate(deadlineDetailsPage);
             }
@@ -88,7 +88,10 @@ namespace TeamProjectStart
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new DeadlineEdit());
+            var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
+            if (selectedDeadline == null)
+                MessageBox.Show("Выберите дедлайн для изменения.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            NavigationService.Navigate(new DeadlineEdit(selectedDeadline));
         }
     }
 }
