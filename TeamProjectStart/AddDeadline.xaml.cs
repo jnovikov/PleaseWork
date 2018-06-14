@@ -65,7 +65,7 @@ namespace TeamProjectStart
             }
             else
             {
-                MessageBox.Show("OK");
+                MessageBox.Show("Дедлайн добавлен успешно");
             }
             var deadlinePage = new DeadlinePage();
             NavigationService.Navigate(deadlinePage);

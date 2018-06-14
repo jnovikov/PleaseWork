@@ -30,7 +30,8 @@ namespace TeamProjectStart
         {
             InitializeComponent();
             _deadline = deadline;
-            
+            deadlineBlock.Text = _deadline.Name;
+            UpdateTasks();
         }
 
         private async void UpdateTasks()

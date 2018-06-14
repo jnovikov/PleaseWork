@@ -71,7 +71,7 @@ namespace TeamProjectStart
                 var values = new Dictionary<string, string>
                 {
                      { "name", name },
-                     { "workTime", workTime.Value.ToString("yyyy-MM-dd'T'HH:mm:ss") }
+                     { "worktime", workTime.Value.ToString("yyyy-MM-dd'T'HH:mm:ss") }
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync($"http://pw.heck.today/api/deadlines/{id}", content);
