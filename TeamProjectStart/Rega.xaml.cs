@@ -27,18 +27,26 @@ namespace TeamProjectStart
 
         private async void RegisterClick(object sender, RoutedEventArgs e)
         {
-            var name = textBoxName.Text;
-            var email = textBoxEmail.Text;
-            var password = passwordBoxPassword.Password;
-            var controller = new AuthController();
+            try
+            {
+                var name = textBoxName.Text;
+                var email = textBoxEmail.Text;
+                var password = passwordBoxPassword.Password;
+                var controller = new AuthController();
 
-            var result =  await controller.Register(email, password, name);
-            if (result != null)
+                var result = await controller.Register(email, password, name);
+                if (result != null)
+                {
+                    MessageBox.Show(result.ErrorMessage);
+                }
+                else
+                {
+                    MessageBox.Show("OK");
+                }
+            }
+            catch(Exception ex)
             {
-                MessageBox.Show(result.ErrorMessage);
-            } else
-            {
-                MessageBox.Show("OK");
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -39,21 +39,35 @@ namespace TeamProjectStart
 
         private async void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
         {
-            var name = textBoxName.Text;
-            var worktime = calendar.SelectedDate; 
-
-            var result = await apiData.AddTask(_deadline.Id, name, worktime);
-
-            if (result != null)
+            try
             {
-                MessageBox.Show(result.ErrorMessage);
+                var name = textBoxName.Text;
+                var worktime = calendar.SelectedDate;
+
+                if (name == null || worktime == null)
+                {
+                    MessageBox.Show("Заполите или выберите всю информацию о дедлайне", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                
+
+                var result = await apiData.AddTask(_deadline.Id, name, worktime);
+
+                if (result != null)
+                {
+                    MessageBox.Show(result.ErrorMessage);
+                }
+                else
+                {
+                    MessageBox.Show("Задача успешно добавлена", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                var deadlineDetailsPage = new DeadlineDetails(_deadline);
+                NavigationService.Navigate(deadlineDetailsPage);
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Задача успешно добавлена");
+                MessageBox.Show(ex.Message);
             }
-            var deadlineDetailsPage = new DeadlineDetails(_deadline);
-            NavigationService.Navigate(deadlineDetailsPage);
         }
     }
 }
