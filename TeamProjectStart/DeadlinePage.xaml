@@ -24,17 +24,16 @@
             <Button Name="buttonEdit" FontSize="18" Background="RosyBrown" Width="150" Height="28" Click="buttonEdit_Click">Открыть</Button>
         </StackPanel>
         <Label Foreground="Black" Grid.Row="1" Margin="130 0 0 10" FontFamily="Segoe Print" FontSize="24" VerticalAlignment="Bottom"  HorizontalAlignment="Left" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>
-        <ScrollViewer Grid.Row="2" Margin="80 0 0 0">
+        <ScrollViewer Grid.Row="2" Margin="120 5 0 0">
             <ListBox Name="listBoxDeadlines" Background="{x:Null}" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Name="DeadlinesBlock" Grid.Row="2" Margin="10 15 0 0">
+                        <StackPanel Name="DeadlinesBlock" Grid.Row="2" Margin="10 20 0 0">
                             <TextBlock Name="textBlockName" FontSize="18" Margin="0 0 0 7" Text="{Binding Path=Name}"/>
-                            <ProgressBar Name="progressBarDeadline" Width="200" Height="25"  Value="{Binding Path=PercentDone}"/>
+                            <ProgressBar Name="progressBarDeadline" Width="200" Height="25" HorizontalAlignment="Left" Value="{Binding Path=PercentDone}"/>
                         </StackPanel>
                     </DataTemplate>
-                    </ListBox.ItemTemplate>
-
+                </ListBox.ItemTemplate>
             </ListBox>
 
         </ScrollViewer>
