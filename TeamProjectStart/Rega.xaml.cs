@@ -41,5 +41,10 @@ namespace TeamProjectStart
                 MessageBox.Show("OK");
             }
         }
+
+        private void buttonGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

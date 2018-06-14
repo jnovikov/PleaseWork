@@ -32,7 +32,7 @@
                     </Button.Effect>
                     <TextBlock FontSize="18" Margin="10 0">Зарегестрироваться</TextBlock>
                 </Button>
-                <Button  Background="Gold" Width="193" HorizontalAlignment="Center" Margin="10">
+                <Button Background="Gold" Width="193" HorizontalAlignment="Center" Margin="10" Click="buttonGoBack_Click">
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect>

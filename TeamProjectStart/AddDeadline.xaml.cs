@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamProjectStart.DTO;
 
 namespace TeamProjectStart
 {
@@ -20,6 +21,8 @@ namespace TeamProjectStart
     /// </summary>
     public partial class AddDeadline : Page
     {
+        public event Action<Deadline> DeadlineAdded;
+
         public AddDeadline()
         {
             InitializeComponent();

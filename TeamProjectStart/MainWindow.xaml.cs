@@ -25,10 +25,5 @@ namespace TeamProjectStart
             InitializeComponent();
             PageContent.Content = new start();
         }
-
-        private void PageContent_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
     }
 }

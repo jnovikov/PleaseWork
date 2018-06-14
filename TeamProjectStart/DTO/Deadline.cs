@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeamProjectStart.DTO
 {
-    class Deadline
+    public class Deadline
     {
         public int Id { get; set; }
         public string Name { get; set; }
