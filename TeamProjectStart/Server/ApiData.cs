@@ -9,7 +9,7 @@ using TeamProjectStart.Helpers;
 
 namespace TeamProjectStart
 {
-    class ApiData
+    public class ApiData
     {
         public async Task<List<Deadline>> GetDeadlines()
         {

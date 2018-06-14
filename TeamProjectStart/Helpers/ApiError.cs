@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace TeamProjectStart.Helpers
 {
-    class ApiError
+    public class ApiError
     {
         public int StatusCode { get; set; }
         public string ErrorMessage { get; set; }

@@ -33,7 +33,7 @@
 
         </ScrollViewer>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 30">
-            <Button Name="buttonDelete" FontSize="15" Height="30" Width="140" Margin="0 0 10 0" Background="Tomato">Удалить</Button>
+            <Button Name="buttonDelete" FontSize="15" Height="30" Width="140" Margin="0 0 10 0" Background="Tomato" Click="buttonDelete_Click">Удалить</Button>
             <Button Name="buttonGoBack" Height="30" Width="140" Margin="100 0 0 0"  FontSize="15" Background="Gold" Click="buttonGoBack_Click">Назад</Button>
         </StackPanel>
     </Grid>
