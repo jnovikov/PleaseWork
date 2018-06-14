@@ -52,15 +52,16 @@ namespace TeamProjectStart
                 var apiData = new ApiData();
                 var name = textBoxName.Text;
                 var finish = calendar.SelectedDate;
+                var hour = double.Parse(comboBoxHour.SelectedItem.ToString());
+                var minutes = double.Parse(comboBoxMinute.SelectedItem.ToString());
 
-                if (name == null || finish == null)
+                if (name == null || finish == null )
                 {
                     MessageBox.Show("Заполите или выберите всю информацию о дедлайне", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                   
-                var hour = double.Parse(comboBoxHour.SelectedItem.ToString());
-                var minutes = double.Parse(comboBoxMinute.SelectedItem.ToString());
+
                 finish = finish.Value.AddHours(hour);
                 finish = finish.Value.AddMinutes(minutes);
 
@@ -85,7 +86,7 @@ namespace TeamProjectStart
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Заполите или выберите всю информацию о дедлайне", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

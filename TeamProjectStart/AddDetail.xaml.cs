@@ -50,7 +50,7 @@ namespace TeamProjectStart
                     return;
                 }
 
-                if (worktime.Value < DateTime.Now)
+                if (worktime.Value.Day < DateTime.Now.Day)
                 {
                     MessageBox.Show("Дата выбрана некорректно", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;

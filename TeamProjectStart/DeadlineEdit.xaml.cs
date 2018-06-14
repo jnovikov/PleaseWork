@@ -95,7 +95,7 @@ namespace TeamProjectStart
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Заполите или выберите всю информацию о дедлайне", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
