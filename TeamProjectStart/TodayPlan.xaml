@@ -19,14 +19,16 @@
         
         <Label Foreground="Black" Margin="60 0 0 0" FontFamily="Segoe Print" Grid.Row="0" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Center" RenderTransformOrigin="0.499,0.436">Какой план на сегодня?
         </Label>
-        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="90 0 0 0" Width="450">
-            <StackPanel>
-                <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10" />
-                <CheckBox Background="OrangeRed" Name="checkBox2" Height="20" Margin="10"/>
-                <CheckBox Background="DodgerBlue"  Name="checkBox3" Height="20" Margin="10"/>
-                <CheckBox Background="Yellow" Name="checkBox4" Height="20" Margin="10"/>
-                <CheckBox Background="Orchid"  Name="checkBox5" Height="20" Margin="10"/>
-            </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="100 0 0 0" Width="450">
+            <ListBox Background="{x:Null}" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <CheckBox  Name="checkBox" Height="20" Margin="10" Content="{Binding Path=Name}" IsChecked="{Binding Path=IsDone}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </ScrollViewer>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="60 0 0 80">
             <Button Name="buttonViewDeadline" Height="30" Width="140" FontSize="15" Background="DarkOrange" Click="buttonViewDeadline_Click">Дедлайны
