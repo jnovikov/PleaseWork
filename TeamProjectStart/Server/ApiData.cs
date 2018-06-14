@@ -29,7 +29,7 @@ namespace TeamProjectStart
                 var values = new Dictionary<string, string>
                 {
                      { "name", name },
-                     { "finish", finish.ToString() }, 
+                     { "finish", finish.Value.ToString("yyyy-MM-dd'T'HH:mm:ss") }, 
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync("http://pw.heck.today/api/deadlines", content);

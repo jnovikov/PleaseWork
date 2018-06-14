@@ -23,6 +23,7 @@ namespace TeamProjectStart
         public DeadlinePage()
         {
             InitializeComponent();
+
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)

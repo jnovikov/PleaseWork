@@ -25,9 +25,9 @@
             <Calendar Name="calendar"/>
             <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 5 0 5">Время дедлайна</TextBlock>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <ComboBox Height="20" Width="90"/>
+                <ComboBox Name="comboBoxHour" Height="20" Width="90"/>
                 <TextBlock Margin="10 0 0 0">:</TextBlock>
-                <ComboBox Height="20" Width="90" Margin="10 0 0 0"/>
+                <ComboBox Name="comboBoxMinute" Height="20" Width="90" Margin="10 0 0 0"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 30" >

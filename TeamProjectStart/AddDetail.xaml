@@ -17,9 +17,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 120 0 0">
             <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="18" Margin="0 10 0 12">Что нужно сделать?</TextBlock>
-            <TextBox Width="250" Name="TextBoxDescription"/>
+            <TextBox Width="250" Name="textBoxName"/>
             <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 10 0 12">Когда?</TextBlock>
-            <Calendar/>
+            <Calendar Name="calendar"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 80" >
             <Button Name="buttonAddDeadlineDetail" FontSize="15" Width="120" Height="25" Background="Green" Margin="0 0 40 0" Click="buttonAddDeadlineDetail_Click">Добавить</Button>
