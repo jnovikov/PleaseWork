@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamProjectStart.DTO;
 
 namespace TeamProjectStart
 {
@@ -20,14 +21,15 @@ namespace TeamProjectStart
     /// </summary>
     public partial class DeadlineDetails : Page
     {
-        
-        //добавить readdata и savedata
-        //private List<Task> _tasks = new List<Task>();
-        
-        //принять дедлайн и для него вывести данные 
-        public DeadlineDetails() //принимаем дедлайн, для которого будем добавлять таски
+
+        public ApiData apiData = new ApiData();
+
+        public Deadline _deadline;
+
+        public DeadlineDetails(Deadline deadline) 
         {
             InitializeComponent();
+            _deadline = deadline;
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)

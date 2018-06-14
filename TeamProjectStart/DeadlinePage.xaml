@@ -22,11 +22,11 @@
         </Button>
         <Label Foreground="Black" Grid.Row="1" Margin="130 0 0 15" FontFamily="Segoe Print" FontSize="20" VerticalAlignment="Bottom"  HorizontalAlignment="Left" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>
         <ScrollViewer Grid.Row="2">
-            <ListBox>
+            <ListBox Name="listBoxDeadlines">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Name="DeadlinesBlock" Grid.Row="2" Margin="100 0 0 0">
-                            <TextBlock Name="textBlockName" Text="{Binding Path=Name}"/>
+                            <Label Name="textBlockName" Content="{Binding Path=Name}"/>
                             <ProgressBar Name="progressBarDeadline" Value="{Binding Path=PercentDone}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -35,7 +35,7 @@
 
         </ScrollViewer>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 30">
-            <Button Name="buttonDelete" FontSize="15" Height="30" Width="140" Margin="0 0 10 0" Background="Tomato">Удалить</Button>
+            <Button Name="buttonDelete" FontSize="15" Height="30" Width="140" Margin="0 0 10 0" Background="Tomato" Click="buttonDelete_Click">Удалить</Button>
             <Button Name="buttonGoBack" Height="30" Width="140" Margin="100 0 0 0"  FontSize="15" Background="Gold" Click="buttonGoBack_Click">Назад</Button>
         </StackPanel>
     </Grid>

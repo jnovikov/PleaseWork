@@ -16,6 +16,7 @@ namespace TeamProjectStart.DTO
         public uint TasksDone { get; set; }
         public double PercentDone
         {
+            set => PercentDone = value;
             get => TasksNum != 0 ? TasksDone / TasksNum * 100 : 0;
         }
 
