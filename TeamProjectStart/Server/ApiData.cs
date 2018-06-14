@@ -22,14 +22,25 @@ namespace TeamProjectStart
             }
         }
 
+        public async Task<List<DTO.Task>> GetTasksForToday()
+        {
+            using (var client = TokenClient.GetClient())
+            {
+                var response = await client.GetAsync("http://pw.heck.today/api/tasks");
+                var responseString = await response.Content.ReadAsStringAsync();
+                var tasks = DTO.Task.ListFromJson(responseString);
+                return tasks?.Where(t => t.WorkTime != null && t.WorkTime.Value.Day == DateTime.Now.Day).OrderByDescending(t => t.WorkTime).ToList();
+            }
+        }
+
         public async Task<ApiError> AddDeadline(string name, DateTime? finish)
         {
             using (var client = TokenClient.GetClient())
             {
                 var values = new Dictionary<string, string>
                 {
-                     { "name", name },
-                     { "finish", finish.Value.ToString("yyyy-MM-dd'T'HH:mm:ss") }, 
+                    {"name", name},
+                    {"finish", finish.Value.ToString("yyyy-MM-dd'T'HH:mm:ss")},
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync("http://pw.heck.today/api/deadlines", content);
@@ -54,8 +65,8 @@ namespace TeamProjectStart
             {
                 var values = new Dictionary<string, string>
                 {
-                     { "name", name },
-                     { "finish", finish.ToString() }, // TO DO: with value
+                    {"name", name},
+                    {"finish", finish.ToString()}, // TO DO: with value
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PutAsync($"http://pw.heck.today/api/deadlines/{id}", content);
@@ -70,8 +81,8 @@ namespace TeamProjectStart
             {
                 var values = new Dictionary<string, string>
                 {
-                     { "name", name },
-                     { "worktime", workTime.Value.ToString("yyyy-MM-dd'T'HH:mm:ss") }
+                    {"name", name},
+                    {"worktime", workTime.Value.ToString("yyyy-MM-dd'T'HH:mm:ss")}
                 };
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync($"http://pw.heck.today/api/deadlines/{id}", content);
@@ -84,17 +95,17 @@ namespace TeamProjectStart
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/done",null);
+                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/done", null);
                 var error = await ApiError.FromResponse(response);
                 return error;
             }
         }
-        
+
         public async Task<ApiError> SetUndone(int id)
         {
             using (var client = TokenClient.GetClient())
             {
-                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/undone",null);
+                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/undone", null);
                 var error = await ApiError.FromResponse(response);
                 return error;
             }

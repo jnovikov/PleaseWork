@@ -20,7 +20,7 @@
         <Label Foreground="Black" Margin="60 0 0 0" FontFamily="Segoe Print" Grid.Row="0" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Center" RenderTransformOrigin="0.499,0.436">Какой план на сегодня?
         </Label>
         <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="100 0 0 0" Width="450">
-            <ListBox Background="{x:Null}" BorderThickness="0">
+            <ListBox x:Name="tasksBox" Background="{x:Null}" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

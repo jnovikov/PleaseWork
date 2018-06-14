@@ -23,6 +23,14 @@ namespace TeamProjectStart
         public TodayPlan()
         {
             InitializeComponent();
+            UpdateTasks();
+        }
+
+        private async void UpdateTasks()
+        {
+            var ad = new ApiData();
+            var tasks = await ad.GetTasksForToday();
+            tasksBox.ItemsSource = tasks;
         }
 
         private void buttonViewDeadline_Click(object sender, RoutedEventArgs e)
