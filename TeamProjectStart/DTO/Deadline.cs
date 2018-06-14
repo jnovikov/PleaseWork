@@ -14,10 +14,11 @@ namespace TeamProjectStart.DTO
         public DateTime Finish { get; set; }
         public uint TasksNum { get; set; }
         public uint TasksDone { get; set; }
+        [JsonIgnore]
         public double PercentDone
         {
             set => PercentDone = value;
-            get => TasksNum != 0 ? TasksDone / TasksNum * 100 : 0;
+            get => TasksNum != 0 ? (double)TasksDone / TasksNum * 100 : 0;
         }
 
         public static Deadline FromJson(string json)
