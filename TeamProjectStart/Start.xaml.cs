@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamProjectStart.DTO;
+using TeamProjectStart.Helpers;
 
 namespace TeamProjectStart
 {
@@ -25,9 +27,26 @@ namespace TeamProjectStart
             InitializeComponent();
         }
 
-        private void buttonPassword_Click(object sender, RoutedEventArgs e)
+        private void buttonRegister_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Rega());
+        }
+
+        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        {
+            var ac = new AuthController();
+            var email = textBoxEmail.Text;
+            var password = textBoxPassword.Password;
+            ApiError error;
+            var result = ac.Login(email, password, out error);
+            if (error != null)
+            {
+                MessageBox.Show(error.ErrorMessage);
+            } else
+            {
+                TokenClient.Token = result;
+                NavigationService.Navigate(new DeadlinePage());
+            }
         }
     }
 }

@@ -15,24 +15,24 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="18" Margin="110 0 0 0" TextAlignment="Center" FontFamily="Segoe Print">Полное имя</TextBlock>
-                <TextBox Name="name" Margin="30 10 10 10" Width="240" Height="25"/>
+                <TextBox Name="textBoxName" Margin="30 10 10 10" Width="240" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="18" Margin="110 0 0 0" TextAlignment="Center" FontFamily="Segoe Print">Email</TextBlock>
-                <TextBox Width="240" Name="email" Margin="85 10 10 10" Height="25"/>
+                <TextBox Width="240" Name="textBoxEmail" Margin="85 10 10 10" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="18" Margin="110 0 0 0" TextAlignment="Center" FontFamily="Segoe Print" >Пароль</TextBlock>
-                <PasswordBox Width="240" Height="25" Margin="70 10 10 10" ToolTip="Пароль должен быть содержать больше 7 символов" Name="password"/>
+                <PasswordBox Width="240" Height="25" Margin="70 10 10 10" ToolTip="Пароль должен быть содержать больше 7 символов" Name="passwordBoxPassword"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="230 15 0 0">
-                <Button Name="buttonSingup" Grid.Row="4" Background="DarkOrange" Grid.Column="1" Margin="10" Width="Auto" HorizontalAlignment="Center"  >
+                <Button Name="registerButton" Grid.Row="4" Background="DarkOrange" Grid.Column="1" Margin="10" Width="Auto" HorizontalAlignment="Center" Click="RegisterClick" >
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect>
                     <TextBlock FontSize="18" Margin="10 0">Зарегестрироваться</TextBlock>
                 </Button>
-                <Button Name="buttonCancel" Background="Gold" Width="193" HorizontalAlignment="Center" Margin="10" Click="buttonCancel_Click">
+                <Button Background="Gold" Width="193" HorizontalAlignment="Center" Margin="10" Click="buttonGoBack_Click">
                     <Button.Effect>
                         <DropShadowEffect/>
                     </Button.Effect>

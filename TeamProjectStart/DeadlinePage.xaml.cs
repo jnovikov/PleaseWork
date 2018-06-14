@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamProjectStart.DTO;
 
 namespace TeamProjectStart
 {
@@ -20,9 +21,18 @@ namespace TeamProjectStart
     /// </summary>
     public partial class DeadlinePage : Page
     {
+        public ApiData apiData = new ApiData();
+
         public DeadlinePage()
         {
             InitializeComponent();
+            UpdateDeadlines();
+        }
+
+        private async void UpdateDeadlines()
+        {
+            listBoxDeadlines.ItemsSource = null;
+            listBoxDeadlines.ItemsSource = await apiData.GetDeadlines();
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
@@ -32,45 +42,41 @@ namespace TeamProjectStart
 
         private void buttonAddDeadline_Click(object sender, RoutedEventArgs e)
         {
-            //var addDeadlinePage = new AddDeadline();
-            //addDeadlinePage.DeadlineAdded += AddDeadlinePage_DeadlineAdded;
-            //NavigationService.Navigate(addDeadlinePage);
+            var addDeadlinePage = new AddDeadline();
+            NavigationService.Navigate(addDeadlinePage);
+            UpdateDeadlines();
         }
 
-        private void AddDeadlinePage_DeadlineAdded(object obj) //принять дедлайн
-        {
-            //var deadlineBlock = new StackPanel();
-
-            //var deadlineLabel = new Label();
-            //deadlineLabel.Content = "DEADLINE";
-            //deadlineLabel.Foreground = Brushes.White;
-            //deadlineLabel.Margin = new Thickness(5);
-            //deadlineLabel.MouseDoubleClick += Label_MouseDoubleClick;
-
-            //var deadlineProgress = new ProgressBar();
-            //deadlineProgress.Height = 15;
-            //deadlineProgress.Width = 150;
-            //deadlineProgress.Margin = new Thickness(5);
-
-            //deadlineBlock.Children.Add(deadlineLabel);
-            //deadlineBlock.Children.Add(deadlineProgress);
-
-            //DeadlinesBlock.Children.Add(deadlineBlock);
-        }
 
         private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //var selectedLabel = sender as Label;
-            //if (selectedLabel != null)
-            //{
-            //    var selectedStackPanel = selectedLabel.Parent as StackPanel;
-            //    if (selectedStackPanel != null)
-            //    {
-            //        var deadlineIndex = DeadlinesBlock.Children.IndexOf(selectedStackPanel);
-            //        MessageBox.Show(deadlineIndex.ToString());
-        //    //        // NavigationService.Navigate(new DeadlineDetails());
-        //        }
-        //    }
+            var selectedLabel = sender as Label;
+            if (selectedLabel != null)
+            {
+                var selectedStackPanel = selectedLabel.Parent as StackPanel;
+                if (selectedStackPanel != null)
+                {
+                    var deadlineIndex = listBoxDeadlines.Items.IndexOf(selectedStackPanel); //TO DO: найти дедлайн и передать страницу
+                    var deadline = listBoxDeadlines.Items.GetItemAt(deadlineIndex);
+                    //NavigationService.Navigate(new DeadlineDetails(deadline));
+                }
+            }
+        }
+
+        private async void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
+            if (selectedDeadline == null)
+                MessageBox.Show("Выберите дедлайн для удаления.");
+            else
+            {
+                if (MessageBox.Show("Вы действительно хотите удалить дедлайн?", "Question",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    await apiData.DeleteDeadline(selectedDeadline.Id);
+                    UpdateDeadlines();
+                }
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamProjectStart.DTO;
 
 namespace TeamProjectStart
 {
@@ -20,7 +21,7 @@ namespace TeamProjectStart
     /// </summary>
     public partial class AddDetail : Page
     {
-        public event Action<Task> TaskAdded;
+        public event Action<DTO.Task> TaskAdded;
 
         public AddDetail()
         {
@@ -32,17 +33,34 @@ namespace TeamProjectStart
             NavigationService.GoBack();
         }
 
-        private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
+        private async void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
         {
-        //    if (!string.IsNullOrWhiteSpace(TextBoxDescription.Text))
-        //    {
-        //        //TaskAdded?.Invoke(new Task
-        //        //{
-        //        //    Description = TextBoxDescription.Text
-        //        //});
-        //        //NavigationService.GoBack();
-        //    }
+            
+            var apiData = new ApiData();
+            var name = textBoxName.Text;
+            var worktime = calendar.SelectedDate;
 
+            //var result = await apiData.AddTask(deadlineId, name, worktime); 
+
+            //if (result != null)
+            //{
+            //    MessageBox.Show(result.ErrorMessage);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("OK");
+            //}
+            NavigationService.GoBack();
+
+
+            //if (!string.IsNullOrWhiteSpace(textBoxName.Text))
+            //{
+            //    TaskAdded?.Invoke(new DTO.Task
+            //    {
+            //        Name = textBoxName.Text
+            //    });
+            //    NavigationService.GoBack();
+            //}
         }
     }
 }

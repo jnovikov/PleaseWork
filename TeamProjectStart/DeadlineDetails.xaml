@@ -17,21 +17,28 @@
             <RowDefinition Height="51*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <Button  Name="buttonAddDeadline" Margin="30 2 0 0" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadlineDetail_Click" BorderThickness="0" Background="Green">
+        <StackPanel Orientation="Horizontal">
+            <Button  Name="buttonAddDeadline" Margin="30 2 450 0" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Left" Click="buttonAddDeadlineDetail_Click" BorderThickness="0" Background="Green">
             <Image Source="Images\add.png" Height="38" Width="28" />
-        </Button>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40 0 0 0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374">Здесь будет название дедлайна</TextBlock>
-        
-            <StackPanel Grid.Row="2" Margin="80 0 0 0">
-            <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10"/>
-            <CheckBox Background="OrangeRed" Name="checkBox2" Height="20" Margin="10"/>
-            <CheckBox Background="DodgerBlue" Name="checkBox3" Height="20" Margin="10"/>
-            <CheckBox  Background="Yellow" Name="checkBox4" Height="20" Margin="10"/>
-            <CheckBox Background="Orchid" Name="checkBox5" Height="20" Margin="10"/>
+            </Button>
+            <Button Name="buttonEdit" FontSize="18" Background="RosyBrown" Width="150" Height="28" >Изменить</Button>
         </StackPanel>
-
-        <ProgressBar Name ="ProgressBarTasks" Grid.Row="2" Height="30" Width="620" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="90 0 0 20" />
-        <Button Name="buttonGoBack" FontSize="18" Background="Gold" Margin="0 0 30 0" Grid.Row="3" Width="150" Height="28" VerticalAlignment="Center" HorizontalAlignment="Right" Click="buttonGoBack_Click">Назад</Button>
-
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40 0 0 0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374">Здесь будет название дедлайна</TextBlock>
+        <ScrollViewer Grid.Row="2" Margin="80 0 0 0">
+            <ListBox Background="{x:Null}" BorderThickness="0" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+        <ProgressBar Name ="ProgressBarTasks" Grid.Row="2" Height="30" Width="620" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100 0 0 20" />
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <Button Name="buttonGoBack" FontSize="18" Background="Tomato" Width="150" Height="28" Margin="100 0 300 0" Click="buttonGoBack_Click">Удалить</Button>
+            <Button Name="buttonDelete" FontSize="18" Background="Gold" Width="150" Height="28" >Назад</Button>
+        </StackPanel>
     </Grid>
 </Page>

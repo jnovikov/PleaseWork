@@ -23,12 +23,7 @@ namespace TeamProjectStart
         public MainWindow()
         {
             InitializeComponent();
-            PageContent.Content = new start();
-        }
-
-        private void PageContent_Navigated(object sender, NavigationEventArgs e)
-        {
-
+            PageContent.Content = new DeadlinePage();
         }
     }
 }

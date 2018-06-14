@@ -24,5 +24,27 @@ namespace TeamProjectStart
         {
             InitializeComponent();
         }
+
+        private async void RegisterClick(object sender, RoutedEventArgs e)
+        {
+            var name = textBoxName.Text;
+            var email = textBoxEmail.Text;
+            var password = passwordBoxPassword.Password;
+            var controller = new AuthController();
+
+            var result =  await controller.Register(email, password, name);
+            if (result != null)
+            {
+                MessageBox.Show(result.ErrorMessage);
+            } else
+            {
+                MessageBox.Show("OK");
+            }
+        }
+
+        private void buttonGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

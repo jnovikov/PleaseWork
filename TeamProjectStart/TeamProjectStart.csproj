@@ -56,6 +56,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -83,12 +86,18 @@
     <Compile Include="AddDetail.xaml.cs">
       <DependentUpon>AddDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Task.cs" />
+    <Compile Include="Server\ApiData.cs" />
+    <Compile Include="Server\AuthController.cs" />
     <Compile Include="DeadlineDetails.xaml.cs">
       <DependentUpon>DeadlineDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="DeadlinePage.xaml.cs">
       <DependentUpon>DeadlinePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Deadline.cs" />
+    <Compile Include="DTO\UserToken.cs" />
+    <Compile Include="Helpers\ApiError.cs" />
     <Compile Include="Rega.xaml.cs">
       <DependentUpon>Rega.xaml</DependentUpon>
     </Compile>
@@ -98,6 +107,7 @@
     <Compile Include="TodayPlan.xaml.cs">
       <DependentUpon>TodayPlan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Server\TokenClient.cs" />
     <Page Include="AddDeadline.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

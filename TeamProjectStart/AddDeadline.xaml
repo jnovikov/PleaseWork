@@ -13,20 +13,26 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="145*"/>
+            <RowDefinition Height="110*"/>
             <RowDefinition Height="329*"/>
-            <RowDefinition Height="126*"/>
+            <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontFamily="Segoe Print" Margin="60 20 0 0">Добавление дедлайна</Label>
-        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 20">
-            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="18" Margin="0 10 0 12">Название</TextBlock>
-            <TextBox Width="250" Name="TextBoxDescription"/>
-            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 10 0 12">Когда дедлайн?</TextBlock>
-            <Calendar/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0">
+            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="18" Margin="0 20 0 5">Название</TextBlock>
+            <TextBox Width="250" Name="textBoxName"/>
+            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 5 0 5">Когда дедлайн?</TextBlock>
+            <Calendar Name="calendar"/>
+            <TextBlock Foreground="Black" FontFamily="Segoe Print" FontSize="16" Margin="0 5 0 5">Время дедлайна</TextBlock>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <ComboBox Name="comboBoxHour" Height="20" Width="90"/>
+                <TextBlock Margin="10 0 0 0">:</TextBlock>
+                <ComboBox Name="comboBoxMinute" Height="20" Width="90" Margin="10 0 0 0"/>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 90" >
-            <Button Name="buttonAddDeadlineDetail" FontSize="15" Width="120" Height="25" Background="Green" Margin="0 0 35 0">Добавить</Button>
-            <Button Name ="buttonGoBack" Width="120" FontSize="15"  Height="25" Background="Gold" Click="buttonGoBack_Click_1">Назад</Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 30" >
+            <Button Name="buttonAddDeadline" FontSize="15" Width="120" Height="25" Background="Green" Margin="0 0 35 0" Click="buttonAddDeadline_Click">Добавить</Button>
+            <Button Name ="buttonGoBack" Width="120" FontSize="15"  Height="25" Background="Gold" Click="buttonGoBack_Click">Назад</Button>
         </StackPanel>
 
     </Grid>
