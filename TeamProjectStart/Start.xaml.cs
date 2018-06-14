@@ -25,6 +25,17 @@ namespace TeamProjectStart
         public start()
         {
             InitializeComponent();
+            Loaded += MyWindow_Loaded;
+        }
+
+        private void MyWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var token = AuthFile.GetToken();
+            if (token != "")
+            {
+                TokenClient.Token = token;
+                NavigationService.Navigate(new TodayPlan());
+            }
         }
 
         private void buttonRegister_Click(object sender, RoutedEventArgs e)
@@ -47,7 +58,12 @@ namespace TeamProjectStart
                 }
                 else
                 {
+
                     TokenClient.Token = result;
+                    if (checkBoxRememberMe.IsChecked == true)
+                    {
+                        AuthFile.Save(result, email);
+                    }
                     NavigationService.Navigate(new TodayPlan());
                 }
             }

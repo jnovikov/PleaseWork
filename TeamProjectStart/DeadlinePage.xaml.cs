@@ -26,6 +26,12 @@ namespace TeamProjectStart
         public DeadlinePage()
         {
             InitializeComponent();
+            Loaded += OnLoad;
+        }
+
+        private void OnLoad(object sender, RoutedEventArgs e)
+        {
+
             UpdateDeadlines();
         }
 

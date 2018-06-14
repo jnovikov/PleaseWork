@@ -19,7 +19,7 @@
             <TextBox Name="textBoxEmail" FontSize="14" Margin="22,0,7.4,0" Background="White" Height="25"/>
             <TextBlock TextAlignment="Left" FontSize="19" Margin="0 10 0 1" FontFamily="Segoe Print">Пароль</TextBlock>
             <PasswordBox Name="textBoxPassword" FontSize="14" Margin="22,0,7.4,0" Height="25"/>
-            <CheckBox Name="checkBoxLogin" FontSize="13" FontFamily="Segoe Print" Margin="22 15 0 0" Content="Запомнить меня"/>
+            <CheckBox Name="checkBoxRememberMe" FontSize="13" FontFamily="Segoe Print" Margin="22 15 0 0" Content="Запомнить меня"/>
             <Button Name="buttonLogin" FontSize="18" Padding="0 2" Background="DarkOrange" Width="200" Margin="10 20 0 20" Click="buttonLogin_Click">
                 <Button.Effect>
                     <DropShadowEffect/>

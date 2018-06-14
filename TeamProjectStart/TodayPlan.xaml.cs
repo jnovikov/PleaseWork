@@ -42,5 +42,11 @@ namespace TeamProjectStart
         {
             NavigationService.Navigate(new start());
         }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            AuthFile.Flush();
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

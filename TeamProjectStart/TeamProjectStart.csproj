@@ -86,6 +86,7 @@
     <Compile Include="AddDetail.xaml.cs">
       <DependentUpon>AddDetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AuthFile.cs" />
     <Compile Include="DeadlineEdit.xaml.cs">
       <DependentUpon>DeadlineEdit.xaml</DependentUpon>
     </Compile>
