@@ -80,6 +80,26 @@ namespace TeamProjectStart
             }
         }
 
+        public async Task<ApiError> SetDone(int id)
+        {
+            using (var client = TokenClient.GetClient())
+            {
+                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/done",null);
+                var error = await ApiError.FromResponse(response);
+                return error;
+            }
+        }
+        
+        public async Task<ApiError> SetUndone(int id)
+        {
+            using (var client = TokenClient.GetClient())
+            {
+                var response = await client.PostAsync($"http://pw.heck.today/api/tasks/{id}/undone",null);
+                var error = await ApiError.FromResponse(response);
+                return error;
+            }
+        }
+
         public async Task<List<DTO.Task>> GetTasksForDeadline(int id)
         {
             using (var client = TokenClient.GetClient())
