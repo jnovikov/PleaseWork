@@ -11,6 +11,8 @@ namespace TeamProjectStart
 {
     class AuthController
     {
+        const string ServerUrl = "http://pw.heck.today";
+
         public async Task<ApiError> Register(string email, string password, string name)
         {
             using (var client = new HttpClient())
@@ -23,7 +25,7 @@ namespace TeamProjectStart
                 };
 
                 var content = new FormUrlEncodedContent(values);
-                var response = await client.PostAsync("http://pw.heck.today/register", content);
+                var response = await client.PostAsync($"{ServerUrl}/register", content);
                 return await ApiError.FromResponse(response);
             }
         }
@@ -38,7 +40,7 @@ namespace TeamProjectStart
                      { "password", password },
                 };
                 var content = new FormUrlEncodedContent(values);
-                var response = client.PostAsync("http://pw.heck.today/login", content).Result;
+                var response = client.PostAsync($"{ServerUrl}/login", content).Result;
                 var contentMessage = response.Content.ReadAsStringAsync().Result;
 
                 error = ApiError.FromResponse(response).Result;
