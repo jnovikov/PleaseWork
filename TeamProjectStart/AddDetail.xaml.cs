@@ -34,7 +34,7 @@ namespace TeamProjectStart
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new DeadlineDetails(_deadline));
         }
 
         private async void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)

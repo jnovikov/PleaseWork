@@ -42,7 +42,7 @@ namespace TeamProjectStart
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new DeadlinePage());
         }
 
         private async void buttonAddDeadline_Click(object sender, RoutedEventArgs e)

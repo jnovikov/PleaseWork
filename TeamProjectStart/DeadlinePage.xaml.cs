@@ -37,7 +37,7 @@ namespace TeamProjectStart
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new TodayPlan());
         }
 
         private void buttonAddDeadline_Click(object sender, RoutedEventArgs e)
