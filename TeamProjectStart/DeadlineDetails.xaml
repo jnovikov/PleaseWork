@@ -25,11 +25,11 @@
         </StackPanel>
         <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40 0 0 0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374">Здесь будет название дедлайна</TextBlock>
         <ScrollViewer Grid.Row="2" Margin="80 0 0 0">
-            <ListBox Background="{x:Null}" BorderThickness="0" >
+            <ListBox Name="listBoxTasks" Background="{x:Null}" BorderThickness="0" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10"/>
+                            <CheckBox Background="GreenYellow" Name="checkBox1" Height="20" Margin="10" Content="{Binding Path=Name}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

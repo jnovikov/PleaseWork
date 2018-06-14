@@ -30,6 +30,7 @@ namespace TeamProjectStart
         {
             InitializeComponent();
             _deadline = deadline;
+            //listBoxTasks.ItemsSource 
         }
 
         private void buttonGoBack_Click(object sender, RoutedEventArgs e)
@@ -40,7 +41,7 @@ namespace TeamProjectStart
         private void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
         {
             var addDetailWindow = new AddDetail();
-            addDetailWindow.TaskAdded += AddTask;
+            //addDetailWindow.TaskAdded += AddTask;
             NavigationService.Navigate(addDetailWindow);
         }
 
@@ -78,9 +79,9 @@ namespace TeamProjectStart
 
         private void UpdateProgressBar()
         {
-        //    //var doneTasks = _tasks.FindAll(t => t.IsDone);
-        //   // var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
-        //   // ProgressBarTasks.Value = percentOfDoneTasks * 100;
+            //var doneTasks = _tasks.FindAll(t => t.IsDone == true);
+            // var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
+            // ProgressBarTasks.Value = percentOfDoneTasks * 100;
         }
     }
 }

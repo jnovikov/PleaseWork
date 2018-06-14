@@ -21,7 +21,7 @@ namespace TeamProjectStart
     /// </summary>
     public partial class AddDetail : Page
     {
-        public event Action<DTO.Task> TaskAdded;
+        ApiData apiData = new ApiData();
 
         public AddDetail()
         {
@@ -35,8 +35,6 @@ namespace TeamProjectStart
 
         private async void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
         {
-            
-            var apiData = new ApiData();
             var name = textBoxName.Text;
             var worktime = calendar.SelectedDate;
 

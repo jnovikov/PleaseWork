@@ -21,7 +21,6 @@ namespace TeamProjectStart
     /// </summary>
     public partial class AddDeadline : Page
     {
-        public event Action<Deadline> DeadlineAdded;
 
         public AddDeadline()
         {
@@ -68,7 +67,8 @@ namespace TeamProjectStart
             {
                 MessageBox.Show("OK");
             }
-            NavigationService.GoBack();
+            var deadlinePage = new DeadlinePage();
+            NavigationService.Navigate(deadlinePage);
         }
     }
 }

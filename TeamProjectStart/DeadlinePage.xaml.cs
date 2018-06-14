@@ -48,21 +48,6 @@ namespace TeamProjectStart
         }
 
 
-        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var selectedLabel = sender as Label;
-            if (selectedLabel != null)
-            {
-                var selectedStackPanel = selectedLabel.Parent as StackPanel;
-                if (selectedStackPanel != null)
-                {
-                    var deadlineIndex = listBoxDeadlines.Items.IndexOf(selectedStackPanel); //TO DO: найти дедлайн и передать страницу
-                    var deadline = listBoxDeadlines.Items.GetItemAt(deadlineIndex);
-                    //NavigationService.Navigate(new DeadlineDetails(deadline));
-                }
-            }
-        }
-
         private async void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
             var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
@@ -77,6 +62,15 @@ namespace TeamProjectStart
                     UpdateDeadlines();
                 }
             }
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedDeadline = listBoxDeadlines.SelectedItem as Deadline;
+            if (selectedDeadline == null)
+                MessageBox.Show("Выберите дедлайн, который Вы хотите открыть.");
+            var deadlineDetailsPage = new DeadlineDetails(selectedDeadline);
+            NavigationService.Navigate(deadlineDetailsPage);
         }
     }
 }
