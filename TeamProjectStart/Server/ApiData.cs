@@ -121,5 +121,15 @@ namespace TeamProjectStart
                 return tasks;
             }
         }
+
+        public async Task<ApiError> DeleteTask(int id)
+        {
+            using (var client = TokenClient.GetClient())
+            {
+                var response = await client.DeleteAsync($"http://pw.heck.today/api/tasks/{id}");
+                var error = await ApiError.FromResponse(response);
+                return error;
+            }
+        }
     }
 }
