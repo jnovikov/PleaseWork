@@ -20,7 +20,6 @@
         <Button Name="buttonAddDeadline" HorizontalAlignment="Left" Margin="30 0 0 0" Width="38" Height="38" Click="buttonAddDeadlineDetail_Click" BorderThickness="0" Background="Green">
             <Image Source="Images\add.png" Height="38" Width="28" />
             </Button>
-        <Button Name="buttonEdit" Margin="0 0 140 0" HorizontalAlignment="Right" FontSize="18" Background="RosyBrown" Width="150" Height="28" Click="buttonEdit_Click" >Изменить</Button>
         <TextBlock x:Name="deadlineBlock" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="60 0 0 0" Foreground="Black" FontFamily="Segoe Print"  FontSize="20" Width="374" Text="Здесь будет название дедлайна"></TextBlock>
         <ScrollViewer Grid.Row="2" Margin="80 0 0 0">
             <ListBox Name="listBoxTasks" Background="{x:Null}" BorderThickness="0" >

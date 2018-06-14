@@ -70,7 +70,7 @@ namespace TeamProjectStart
             }
         }
 
-        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        private void buttonOpen_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -84,6 +84,11 @@ namespace TeamProjectStart
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeadlineEdit());
         }
     }
 }

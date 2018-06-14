@@ -85,10 +85,5 @@ namespace TeamProjectStart
             // var percentOfDoneTasks = (double)doneTasks.Count / _tasks.Count;
             // ProgressBarTasks.Value = percentOfDoneTasks * 100;
         }
-
-        private void buttonEdit_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new DeadlineEdit());
-        }
     }
 }

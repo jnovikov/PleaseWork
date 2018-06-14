@@ -12,7 +12,7 @@
     </Page.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="23*"/>
             <RowDefinition Height="18*"/>
             <RowDefinition Height="100*"/>
             <RowDefinition Height="17*"/>
@@ -20,7 +20,10 @@
         <Button Name="buttonAddDeadline" HorizontalAlignment="Left" Margin="30 0 0 0" Width="50" Height="50" Click="buttonAddDeadline_Click" BorderThickness="0" Background="Green">
                 <Image Source="Images\add.png" Height="38" Width="28" />
         </Button>
-        <Button HorizontalAlignment="Right" Name="buttonEdit" Margin="0 0 140 0" FontSize="18" Background="RosyBrown" Width="150" Height="28" Click="buttonEdit_Click">Открыть</Button>
+        <StackPanel>
+            <Button HorizontalAlignment="Right" Name="buttonOpen" Margin="0 10 140 0" FontSize="18" Background="RosyBrown" Width="150" Height="28" Click="buttonOpen_Click">Открыть</Button>
+            <Button Name="buttonEdit" Margin="0 10 140 0" HorizontalAlignment="Right" FontSize="18" Background="RosyBrown" Width="150" Height="28" Click="buttonEdit_Click">Изменить</Button>
+        </StackPanel>
         <Label Foreground="Black" Grid.Row="1" Margin="130 0 0 10" FontFamily="Segoe Print" FontSize="24" VerticalAlignment="Bottom"  HorizontalAlignment="Left" RenderTransformOrigin="-0.042,0.506">Дедлайны</Label>
         <ScrollViewer Grid.Row="2" Margin="120 5 0 0">
             <ListBox Name="listBoxDeadlines" Background="{x:Null}" BorderThickness="0">
