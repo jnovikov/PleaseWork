@@ -40,7 +40,7 @@ namespace TeamProjectStart
         private async void buttonAddDeadlineDetail_Click(object sender, RoutedEventArgs e)
         {
             var name = textBoxName.Text;
-            var worktime = calendar.SelectedDate;
+            var worktime = calendar.SelectedDate; 
 
             var result = await apiData.AddTask(_deadline.Id, name, worktime);
 
@@ -50,7 +50,7 @@ namespace TeamProjectStart
             }
             else
             {
-                MessageBox.Show("OK");
+                MessageBox.Show("Задача успешно добавлена");
             }
             var deadlineDetailsPage = new DeadlineDetails(_deadline);
             NavigationService.Navigate(deadlineDetailsPage);

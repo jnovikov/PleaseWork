@@ -24,7 +24,7 @@ namespace BackendApi.Controllers
             return Ok(tasks);
         }
 
-        [HttpPost("{id}")]
+        [HttpPost("{id}/done")]
         [Authorize]
         public IActionResult SetDone(int id)
         {
@@ -33,6 +33,18 @@ namespace BackendApi.Controllers
             db.SaveChanges();
             return Ok(task);
         }
+        
+        [HttpPost("{id}/undone")]
+        [Authorize]
+        public IActionResult SetUndone(int id)
+        {
+            var task = findTask(id);
+            task.IsDone = false;
+            db.SaveChanges();
+            return Ok(task);
+        }
+        
+        
 
         [HttpDelete("{id}")]
         [Authorize]
